@@ -49,6 +49,18 @@ SCDG_IMPLEMENT_SINGLETON()
     
 }
 
+- (BOOL)isCachedExecCommand:(uint64_t)commandId{
+    
+    return [self.execCommandCache containsObjectForKey:[NSString stringWithFormat:@"%llu", commandId]];
+    
+}
+
+- (id)cachedExecCommand:(uint64_t)commandId{
+    
+    return [self.execCommandCache objectForKey:[NSString stringWithFormat:@"%llu", commandId]];
+    
+}
+
 - (void)removeFromExecCommandCacheBy:(uint64_t)commandId{
     
     [self.execCommandCache removeObjectForKey:[NSString stringWithFormat:@"%llu", commandId]];
@@ -58,6 +70,18 @@ SCDG_IMPLEMENT_SINGLETON()
 - (void)cacheUncompletedCommand:(id)object commandId:(uint64_t)commandId{
     
     [self.uncompletedCache setObject:object forKey:[NSString stringWithFormat:@"%llu", commandId]];
+    
+}
+
+- (BOOL)isCachedUncompletedCommand:(uint64_t)commandId{
+    
+    return [self.uncompletedCache containsObjectForKey:[NSString stringWithFormat:@"%llu", commandId]];
+    
+}
+
+- (id)cachedUncompletedCommand:(uint64_t)commandId{
+    
+    return [self.uncompletedCache objectForKey:[NSString stringWithFormat:@"%llu", commandId]];
     
 }
 

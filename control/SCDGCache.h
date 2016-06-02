@@ -17,9 +17,17 @@ SCDG_DECLARE_SINGLETON()
 
 - (void)cacheExecCommand:(id)object commandId:(uint64_t)commandId;
 
+- (BOOL)isCachedExecCommand:(uint64_t)commandId;
+
+- (id)cachedExecCommand:(uint64_t)commandId;
+
 - (void)removeFromExecCommandCacheBy:(uint64_t)commandId;
 
 - (void)cacheUncompletedCommand:(id)object commandId:(uint64_t)commandId;
+
+- (BOOL)isCachedUncompletedCommand:(uint64_t)commandId;
+
+- (id)cachedUncompletedCommand:(uint64_t)commandId;
 
 - (void)removeFromUncompletedCacheBy:(uint64_t)commandId;
 

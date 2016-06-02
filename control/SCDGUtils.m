@@ -387,6 +387,16 @@ NSString* const LOGINED_KEY = @"logined";
     return uuidStr;
 }
 
++ (void)setUUID:(NSString *)uuidStr{
+    
+    if (![SCDGUtils isValidStr:uuidStr]) {
+        
+        [self setKeyChainString:uuidStr forKey:@"SCDGUUID"];
+        
+    }
+    
+    return ;
+}
 
 + (int)getRandomNumber:(int)from to:(int)to{
     

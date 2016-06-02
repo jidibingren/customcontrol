@@ -14,21 +14,6 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - BlocksKit (2.2.5):
-    - BlocksKit/All (= 2.2.5)
-  - BlocksKit/All (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.5)
-  - BlocksKit/DynamicDelegate (2.2.5)
-  - BlocksKit/MessageUI (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
   - CocoaLumberjack (2.3.0):
     - CocoaLumberjack/Default (= 2.3.0)
     - CocoaLumberjack/Extensions (= 2.3.0)
@@ -37,9 +22,8 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
-  - CustomControl (0.0.1):
+  - CustomControl (0.0.2):
     - AFNetworking (~> 3.1.0)
-    - BlocksKit (~> 2.2.5)
     - MQTTClient (~> 0.7.4)
     - UICKeyChainStore (~> 2.1.0)
     - XRSA (~> 1.1.1)
@@ -57,9 +41,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  CustomControl: 0ae4f61114f006f944d965c931e4d5099bde53bf
+  CustomControl: f1aa49b0a07aaa7c7707ac6109bcf66c5f641e9b
   MQTTClient: be89741654eccf5a57eb62f4ef0fd57e0e19aa17
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
   XRSA: 042eada67995d46a5136e3a411c3d535368d7eef

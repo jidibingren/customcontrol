@@ -15,6 +15,7 @@
 #import "serverlogin_generated.h"
 #import "server_msg_response_generated.h"
 #import "server_message_generated.h"
+#import "server_message_received_generated.h"
 
 using namespace std;
 using namespace Msg::Mqtt;
@@ -48,7 +49,7 @@ SCDG_IMPLEMENT_SINGLETON()
 
 - (instancetype)init{
     if (self = [super init]) {
-    
+        
     }
     
     return self;
@@ -75,7 +76,7 @@ SCDG_IMPLEMENT_SINGLETON()
                                    will:[@"offline" dataUsingEncoding:NSUTF8StringEncoding]
                                 willQos:MQTTQosLevelExactlyOnce
                          willRetainFlag:FALSE
-                           withClientId:[SCDGUtils isValidStr:clientId] ? clientId : kClientID];
+                           withClientId:[SCDGUtils isValidStr:clientId] ? clientId : [SCDGUtils getUUID]];
 //        MQTTSSLSecurityPolicy *securityPolicy = [MQTTSSLSecurityPolicy policyWithPinningMode:MQTTSSLPinningModeCertificate];
 //        securityPolicy.allowInvalidCertificates = YES;
 //        securityPolicy.validatesCertificateChain = NO;
@@ -155,11 +156,31 @@ SCDG_IMPLEMENT_SINGLETON()
 #pragma mark - m
 - (void)handleMessage:(NSData *)data onTopic:(NSString *)topic retained:(BOOL)retained{
     
+    flatbuffers::Verifier *verifier = new flatbuffers::Verifier((uint8_t *)[(NSData*)data bytes], [(NSData*)data length]);
     
-    if (_handleMessage){
+    if (Msg::Message::VerifyContentBuffer(*verifier)) {
         
-        _handleMessage(data, topic, retained);
+        const Msg::Message::Content *content = Msg::Message::GetContent((uint8_t*)[data bytes]);
         
+        SCDGCache *cache = [SCDGCache sharedInstance];
+        if (content->messageId()) {
+            
+            if (![cache isCachedExecCommand:content->messageId()]) {
+                
+                [cache cacheExecCommand:data commandId:content->messageId()];
+                
+                if (_handleMessage){
+                    
+                    _handleMessage(data, topic, retained);
+                    
+                }
+                
+            }else if ([cache isCachedUncompletedCommand:content->messageId()]){
+                
+                [self sendMessageReceivedToUpTopic:[NSString stringWithFormat:@"%llu", content->messageId()] callback:nil];
+                
+            }
+        }
     }
 }
 
@@ -199,6 +220,24 @@ SCDG_IMPLEMENT_SINGLETON()
     });
     
     return _defaultPinnedCertificates;
+}
+
+-(void)setDeviceToken:(NSString *)deviceToken{
+    
+    [SCDGUtils setUUID:deviceToken];
+    
+}
+
+-(void)setPublicKey:(NSString *)publicKey{
+    
+    [[SCDGEncryption sharedInstance] setPublicKey:publicKey];
+    
+}
+
+- (void)setPublicKeyFileName:(NSString *)publicKeyFileName{
+    
+    [[SCDGEncryption sharedInstance] setPublicKeyFileName:publicKeyFileName];
+    
 }
 
 - (void)loginWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, NSData *data))callback{
@@ -251,7 +290,7 @@ SCDG_IMPLEMENT_SINGLETON()
         NSString *pass  = [NSString stringWithUTF8String:obj2->auth()->pass()->c_str()];
         self.topic = [NSString stringWithUTF8String:obj2->topic()->c_str()];
         
-        if (obj2->auth()->device() != 0) {
+        if (obj2->auth()->device()) {
             
             self.clientId = [NSString stringWithFormat:@"%lld", obj2->auth()->device()];
             
@@ -305,17 +344,19 @@ SCDG_IMPLEMENT_SINGLETON()
     if (self.upTopic) {
         
         flatbuffers::FlatBufferBuilder builder;
-        auto message = builder.CreateString([mid UTF8String]);
-        uint8_t status = 1;
+        uint8_t platform = 1;
+        auto deviceId = builder.CreateString(self.clientId ? self.clientId.UTF8String : [SCDGUtils getUUID].UTF8String);
         
         // table
-        auto mloc = Msg::Response::CreateBody(builder, status, message);
+        auto mloc = Msg::Message::CreateReceived(builder, (uint64_t)mid.longLongValue, platform, deviceId);
         builder.Finish(mloc);
         
         char* ptr = (char*)builder.GetBufferPointer();
         uint64_t size = builder.GetSize();
         
         if ([self publish:self.upTopic data:[NSData dataWithBytes:ptr length:(NSInteger)size]]) {
+            
+            [[SCDGCache sharedInstance] removeFromUncompletedCacheBy:mid.longLongValue];
             
             if (callback) {
                 callback(YES, mid);

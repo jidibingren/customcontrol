@@ -126,6 +126,8 @@
 
 + (NSString *)getUUID;
 
++ (void)setUUID:(NSString *)uuidStr;
+
 + (int)getRandomNumber:(int)from to:(int)to;
 
 + (NSString*)getRandomStr:(int)length;

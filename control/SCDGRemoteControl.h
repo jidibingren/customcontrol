@@ -14,6 +14,15 @@
 @property (nonatomic, strong) NSString *topic;
 @property (nonatomic, strong) NSString *privateTopic;
 @property (nonatomic, strong) NSString *upTopic;
+@property (nonatomic, strong) NSString *deviceToken;
+
+/* you need to set one of the three settings
+ * 1.the publickey file content to publicKey
+ * 2.the publicKeyFileName
+ * 3.rename your publicKeyFileName as rsa_public_key.pem
+ */
+@property (nonatomic, strong)NSString *publicKey;
+@property (nonatomic, strong)NSString *publicKeyFileName;
 
 @property (nonatomic, strong) void(^handleMessage)(NSData *data, NSString *topic, BOOL retained);
 
