@@ -1,0 +1,705 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		521855AD1CE307EA000EF419 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855AC1CE307EA000EF419 /* main.m */; };
+		521855B01CE307EA000EF419 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855AF1CE307EA000EF419 /* AppDelegate.m */; };
+		521855B31CE307EA000EF419 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 521855B21CE307EA000EF419 /* ViewController.mm */; };
+		521855B61CE307EA000EF419 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521855B41CE307EA000EF419 /* Main.storyboard */; };
+		521855B81CE307EA000EF419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521855B71CE307EA000EF419 /* Assets.xcassets */; };
+		521855BB1CE307EA000EF419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521855B91CE307EA000EF419 /* LaunchScreen.storyboard */; };
+		521855C61CE307EA000EF419 /* deigoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855C51CE307EA000EF419 /* deigoTests.m */; };
+		521855D11CE307EA000EF419 /* deigoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855D01CE307EA000EF419 /* deigoUITests.m */; };
+		5264CF9C1CFFDE7800C2FCB2 /* SCDGCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF8F1CFFDE7800C2FCB2 /* SCDGCache.m */; };
+		5264CF9D1CFFDE7800C2FCB2 /* SCDGEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF911CFFDE7800C2FCB2 /* SCDGEncryption.m */; };
+		5264CF9E1CFFDE7800C2FCB2 /* SCDGHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF931CFFDE7800C2FCB2 /* SCDGHttpTool.m */; };
+		5264CF9F1CFFDE7800C2FCB2 /* SCDGRemoteControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF951CFFDE7800C2FCB2 /* SCDGRemoteControl.mm */; };
+		5264CFA01CFFDE7800C2FCB2 /* SCDGRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF971CFFDE7800C2FCB2 /* SCDGRSA.m */; };
+		5264CFA11CFFDE7800C2FCB2 /* SCDGSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF991CFFDE7800C2FCB2 /* SCDGSign.m */; };
+		5264CFA21CFFDE7800C2FCB2 /* SCDGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF9B1CFFDE7800C2FCB2 /* SCDGUtils.m */; };
+		5264CFAA1CFFE38600C2FCB2 /* flatbuffers.h.gch in Resources */ = {isa = PBXBuildFile; fileRef = 5264CFA51CFFE38600C2FCB2 /* flatbuffers.h.gch */; };
+		5264CFAB1CFFE38600C2FCB2 /* flatbuffers_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5264CFA81CFFE38600C2FCB2 /* flatbuffers_util.cpp */; };
+		52F8A60E1CF554000043D3F8 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A60D1CF554000043D3F8 /* rsa_public_key.pem */; };
+		52F8A6151CF57F7B0043D3F8 /* server_bin.crt in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A6121CF57F7B0043D3F8 /* server_bin.crt */; };
+		52F8A6161CF57F7B0043D3F8 /* server.crt in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A6131CF57F7B0043D3F8 /* server.crt */; };
+		52F8A6171CF57F7B0043D3F8 /* server.pubkey in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A6141CF57F7B0043D3F8 /* server.pubkey */; };
+		6F6294F26427AAFCCCE10048 /* libPods-deigo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6E5484E7A62A488ABE56B6 /* libPods-deigo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		521855C21CE307EA000EF419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 521855A01CE307EA000EF419 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 521855A71CE307EA000EF419;
+			remoteInfo = deigo;
+		};
+		521855CD1CE307EA000EF419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 521855A01CE307EA000EF419 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 521855A71CE307EA000EF419;
+			remoteInfo = deigo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22C85DF3C7FE89F877281D68 /* Pods-deigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deigo.release.xcconfig"; path = "Pods/Target Support Files/Pods-deigo/Pods-deigo.release.xcconfig"; sourceTree = "<group>"; };
+		521855A81CE307EA000EF419 /* deigo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deigo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		521855AC1CE307EA000EF419 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		521855AE1CE307EA000EF419 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		521855AF1CE307EA000EF419 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		521855B11CE307EA000EF419 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		521855B21CE307EA000EF419 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		521855B51CE307EA000EF419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		521855B71CE307EA000EF419 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		521855BA1CE307EA000EF419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		521855BC1CE307EA000EF419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		521855C11CE307EA000EF419 /* deigoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deigoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		521855C51CE307EA000EF419 /* deigoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = deigoTests.m; sourceTree = "<group>"; };
+		521855C71CE307EA000EF419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		521855CC1CE307EA000EF419 /* deigoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deigoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		521855D01CE307EA000EF419 /* deigoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = deigoUITests.m; sourceTree = "<group>"; };
+		521855D21CE307EA000EF419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		521855E21CE30932000EF419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5264CF8B1CFFDE7800C2FCB2 /* SCDGProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectConstants.h; sourceTree = "<group>"; };
+		5264CF8C1CFFDE7800C2FCB2 /* SCDGProjectHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectHeaders.h; sourceTree = "<group>"; };
+		5264CF8D1CFFDE7800C2FCB2 /* SCDGProjectURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectURLs.h; sourceTree = "<group>"; };
+		5264CF8E1CFFDE7800C2FCB2 /* SCDGCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGCache.h; sourceTree = "<group>"; };
+		5264CF8F1CFFDE7800C2FCB2 /* SCDGCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGCache.m; sourceTree = "<group>"; };
+		5264CF901CFFDE7800C2FCB2 /* SCDGEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGEncryption.h; sourceTree = "<group>"; };
+		5264CF911CFFDE7800C2FCB2 /* SCDGEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGEncryption.m; sourceTree = "<group>"; };
+		5264CF921CFFDE7800C2FCB2 /* SCDGHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGHttpTool.h; sourceTree = "<group>"; };
+		5264CF931CFFDE7800C2FCB2 /* SCDGHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGHttpTool.m; sourceTree = "<group>"; };
+		5264CF941CFFDE7800C2FCB2 /* SCDGRemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGRemoteControl.h; sourceTree = "<group>"; };
+		5264CF951CFFDE7800C2FCB2 /* SCDGRemoteControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SCDGRemoteControl.mm; sourceTree = "<group>"; };
+		5264CF961CFFDE7800C2FCB2 /* SCDGRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGRSA.h; sourceTree = "<group>"; };
+		5264CF971CFFDE7800C2FCB2 /* SCDGRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGRSA.m; sourceTree = "<group>"; };
+		5264CF981CFFDE7800C2FCB2 /* SCDGSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGSign.h; sourceTree = "<group>"; };
+		5264CF991CFFDE7800C2FCB2 /* SCDGSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGSign.m; sourceTree = "<group>"; };
+		5264CF9A1CFFDE7800C2FCB2 /* SCDGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGUtils.h; sourceTree = "<group>"; };
+		5264CF9B1CFFDE7800C2FCB2 /* SCDGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGUtils.m; sourceTree = "<group>"; };
+		5264CFA41CFFE38600C2FCB2 /* flatbuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flatbuffers.h; sourceTree = "<group>"; };
+		5264CFA51CFFE38600C2FCB2 /* flatbuffers.h.gch */ = {isa = PBXFileReference; lastKnownFileType = file; path = flatbuffers.h.gch; sourceTree = "<group>"; };
+		5264CFA81CFFE38600C2FCB2 /* flatbuffers_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flatbuffers_util.cpp; sourceTree = "<group>"; };
+		5264CFA91CFFE38600C2FCB2 /* flatbuffers_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flatbuffers_util.h; sourceTree = "<group>"; };
+		5264CFAC1D000CC600C2FCB2 /* server_message_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server_message_generated.h; sourceTree = "<group>"; };
+		5264CFAD1D000CC600C2FCB2 /* server_msg_response_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server_msg_response_generated.h; sourceTree = "<group>"; };
+		5264CFAE1D000CC600C2FCB2 /* serverlogin_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverlogin_generated.h; sourceTree = "<group>"; };
+		52F8A60D1CF554000043D3F8 /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
+		52F8A6121CF57F7B0043D3F8 /* server_bin.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = server_bin.crt; sourceTree = "<group>"; };
+		52F8A6131CF57F7B0043D3F8 /* server.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = server.crt; sourceTree = "<group>"; };
+		52F8A6141CF57F7B0043D3F8 /* server.pubkey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = server.pubkey; sourceTree = "<group>"; };
+		C5F02F89A4A027B8C81AAB15 /* Pods-deigo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deigo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-deigo/Pods-deigo.debug.xcconfig"; sourceTree = "<group>"; };
+		CA6E5484E7A62A488ABE56B6 /* libPods-deigo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-deigo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		521855A51CE307EA000EF419 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F6294F26427AAFCCCE10048 /* libPods-deigo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		521855BE1CE307EA000EF419 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		521855C91CE307EA000EF419 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5218559F1CE307EA000EF419 = {
+			isa = PBXGroup;
+			children = (
+				5264CFA31CFFE38600C2FCB2 /* flatbuffers */,
+				5264CF891CFFDE7800C2FCB2 /* control */,
+				521855AA1CE307EA000EF419 /* deigo */,
+				521855C41CE307EA000EF419 /* deigoTests */,
+				521855CF1CE307EA000EF419 /* deigoUITests */,
+				521855A91CE307EA000EF419 /* Products */,
+				578804E9CCACF8E916318DF1 /* Pods */,
+				E608822F1C18892506F95E06 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		521855A91CE307EA000EF419 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				521855A81CE307EA000EF419 /* deigo.app */,
+				521855C11CE307EA000EF419 /* deigoTests.xctest */,
+				521855CC1CE307EA000EF419 /* deigoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		521855AA1CE307EA000EF419 /* deigo */ = {
+			isa = PBXGroup;
+			children = (
+				521855AE1CE307EA000EF419 /* AppDelegate.h */,
+				521855AF1CE307EA000EF419 /* AppDelegate.m */,
+				521855B11CE307EA000EF419 /* ViewController.h */,
+				521855B21CE307EA000EF419 /* ViewController.mm */,
+				521855B41CE307EA000EF419 /* Main.storyboard */,
+				521855B71CE307EA000EF419 /* Assets.xcassets */,
+				521855B91CE307EA000EF419 /* LaunchScreen.storyboard */,
+				521855BC1CE307EA000EF419 /* Info.plist */,
+				521855AB1CE307EA000EF419 /* Supporting Files */,
+			);
+			path = deigo;
+			sourceTree = "<group>";
+		};
+		521855AB1CE307EA000EF419 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				521855AC1CE307EA000EF419 /* main.m */,
+				521855E21CE30932000EF419 /* PrefixHeader.pch */,
+				52F8A60D1CF554000043D3F8 /* rsa_public_key.pem */,
+				52F8A6121CF57F7B0043D3F8 /* server_bin.crt */,
+				52F8A6131CF57F7B0043D3F8 /* server.crt */,
+				52F8A6141CF57F7B0043D3F8 /* server.pubkey */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		521855C41CE307EA000EF419 /* deigoTests */ = {
+			isa = PBXGroup;
+			children = (
+				521855C51CE307EA000EF419 /* deigoTests.m */,
+				521855C71CE307EA000EF419 /* Info.plist */,
+			);
+			path = deigoTests;
+			sourceTree = "<group>";
+		};
+		521855CF1CE307EA000EF419 /* deigoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				521855D01CE307EA000EF419 /* deigoUITests.m */,
+				521855D21CE307EA000EF419 /* Info.plist */,
+			);
+			path = deigoUITests;
+			sourceTree = "<group>";
+		};
+		5264CF891CFFDE7800C2FCB2 /* control */ = {
+			isa = PBXGroup;
+			children = (
+				5264CF8B1CFFDE7800C2FCB2 /* SCDGProjectConstants.h */,
+				5264CF8C1CFFDE7800C2FCB2 /* SCDGProjectHeaders.h */,
+				5264CF8D1CFFDE7800C2FCB2 /* SCDGProjectURLs.h */,
+				5264CF8E1CFFDE7800C2FCB2 /* SCDGCache.h */,
+				5264CF8F1CFFDE7800C2FCB2 /* SCDGCache.m */,
+				5264CF901CFFDE7800C2FCB2 /* SCDGEncryption.h */,
+				5264CF911CFFDE7800C2FCB2 /* SCDGEncryption.m */,
+				5264CF921CFFDE7800C2FCB2 /* SCDGHttpTool.h */,
+				5264CF931CFFDE7800C2FCB2 /* SCDGHttpTool.m */,
+				5264CF941CFFDE7800C2FCB2 /* SCDGRemoteControl.h */,
+				5264CF951CFFDE7800C2FCB2 /* SCDGRemoteControl.mm */,
+				5264CF961CFFDE7800C2FCB2 /* SCDGRSA.h */,
+				5264CF971CFFDE7800C2FCB2 /* SCDGRSA.m */,
+				5264CF981CFFDE7800C2FCB2 /* SCDGSign.h */,
+				5264CF991CFFDE7800C2FCB2 /* SCDGSign.m */,
+				5264CF9A1CFFDE7800C2FCB2 /* SCDGUtils.h */,
+				5264CF9B1CFFDE7800C2FCB2 /* SCDGUtils.m */,
+			);
+			path = control;
+			sourceTree = "<group>";
+		};
+		5264CFA31CFFE38600C2FCB2 /* flatbuffers */ = {
+			isa = PBXGroup;
+			children = (
+				5264CFA41CFFE38600C2FCB2 /* flatbuffers.h */,
+				5264CFA51CFFE38600C2FCB2 /* flatbuffers.h.gch */,
+				5264CFA81CFFE38600C2FCB2 /* flatbuffers_util.cpp */,
+				5264CFA91CFFE38600C2FCB2 /* flatbuffers_util.h */,
+				5264CFAC1D000CC600C2FCB2 /* server_message_generated.h */,
+				5264CFAD1D000CC600C2FCB2 /* server_msg_response_generated.h */,
+				5264CFAE1D000CC600C2FCB2 /* serverlogin_generated.h */,
+			);
+			path = flatbuffers;
+			sourceTree = "<group>";
+		};
+		578804E9CCACF8E916318DF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5F02F89A4A027B8C81AAB15 /* Pods-deigo.debug.xcconfig */,
+				22C85DF3C7FE89F877281D68 /* Pods-deigo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E608822F1C18892506F95E06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA6E5484E7A62A488ABE56B6 /* libPods-deigo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		521855A71CE307EA000EF419 /* deigo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 521855D51CE307EA000EF419 /* Build configuration list for PBXNativeTarget "deigo" */;
+			buildPhases = (
+				374B931559149D2703510E6D /* Check Pods Manifest.lock */,
+				521855A41CE307EA000EF419 /* Sources */,
+				521855A51CE307EA000EF419 /* Frameworks */,
+				521855A61CE307EA000EF419 /* Resources */,
+				4594BDEEB47C42C9FEB1465B /* Embed Pods Frameworks */,
+				E02629FB70E8B15A71ADE55E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = deigo;
+			productName = deigo;
+			productReference = 521855A81CE307EA000EF419 /* deigo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		521855C01CE307EA000EF419 /* deigoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 521855D81CE307EA000EF419 /* Build configuration list for PBXNativeTarget "deigoTests" */;
+			buildPhases = (
+				521855BD1CE307EA000EF419 /* Sources */,
+				521855BE1CE307EA000EF419 /* Frameworks */,
+				521855BF1CE307EA000EF419 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				521855C31CE307EA000EF419 /* PBXTargetDependency */,
+			);
+			name = deigoTests;
+			productName = deigoTests;
+			productReference = 521855C11CE307EA000EF419 /* deigoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		521855CB1CE307EA000EF419 /* deigoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 521855DB1CE307EA000EF419 /* Build configuration list for PBXNativeTarget "deigoUITests" */;
+			buildPhases = (
+				521855C81CE307EA000EF419 /* Sources */,
+				521855C91CE307EA000EF419 /* Frameworks */,
+				521855CA1CE307EA000EF419 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				521855CE1CE307EA000EF419 /* PBXTargetDependency */,
+			);
+			name = deigoUITests;
+			productName = deigoUITests;
+			productReference = 521855CC1CE307EA000EF419 /* deigoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		521855A01CE307EA000EF419 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = SC;
+				TargetAttributes = {
+					521855A71CE307EA000EF419 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					521855C01CE307EA000EF419 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 521855A71CE307EA000EF419;
+					};
+					521855CB1CE307EA000EF419 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 521855A71CE307EA000EF419;
+					};
+				};
+			};
+			buildConfigurationList = 521855A31CE307EA000EF419 /* Build configuration list for PBXProject "deigo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5218559F1CE307EA000EF419;
+			productRefGroup = 521855A91CE307EA000EF419 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				521855A71CE307EA000EF419 /* deigo */,
+				521855C01CE307EA000EF419 /* deigoTests */,
+				521855CB1CE307EA000EF419 /* deigoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		521855A61CE307EA000EF419 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521855BB1CE307EA000EF419 /* LaunchScreen.storyboard in Resources */,
+				52F8A60E1CF554000043D3F8 /* rsa_public_key.pem in Resources */,
+				52F8A6171CF57F7B0043D3F8 /* server.pubkey in Resources */,
+				5264CFAA1CFFE38600C2FCB2 /* flatbuffers.h.gch in Resources */,
+				521855B81CE307EA000EF419 /* Assets.xcassets in Resources */,
+				521855B61CE307EA000EF419 /* Main.storyboard in Resources */,
+				52F8A6151CF57F7B0043D3F8 /* server_bin.crt in Resources */,
+				52F8A6161CF57F7B0043D3F8 /* server.crt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		521855BF1CE307EA000EF419 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		521855CA1CE307EA000EF419 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		374B931559149D2703510E6D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4594BDEEB47C42C9FEB1465B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-deigo/Pods-deigo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E02629FB70E8B15A71ADE55E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-deigo/Pods-deigo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		521855A41CE307EA000EF419 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5264CFA01CFFDE7800C2FCB2 /* SCDGRSA.m in Sources */,
+				5264CFA21CFFDE7800C2FCB2 /* SCDGUtils.m in Sources */,
+				521855B31CE307EA000EF419 /* ViewController.mm in Sources */,
+				5264CFA11CFFDE7800C2FCB2 /* SCDGSign.m in Sources */,
+				5264CFAB1CFFE38600C2FCB2 /* flatbuffers_util.cpp in Sources */,
+				521855B01CE307EA000EF419 /* AppDelegate.m in Sources */,
+				521855AD1CE307EA000EF419 /* main.m in Sources */,
+				5264CF9E1CFFDE7800C2FCB2 /* SCDGHttpTool.m in Sources */,
+				5264CF9C1CFFDE7800C2FCB2 /* SCDGCache.m in Sources */,
+				5264CF9F1CFFDE7800C2FCB2 /* SCDGRemoteControl.mm in Sources */,
+				5264CF9D1CFFDE7800C2FCB2 /* SCDGEncryption.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		521855BD1CE307EA000EF419 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521855C61CE307EA000EF419 /* deigoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		521855C81CE307EA000EF419 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521855D11CE307EA000EF419 /* deigoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		521855C31CE307EA000EF419 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 521855A71CE307EA000EF419 /* deigo */;
+			targetProxy = 521855C21CE307EA000EF419 /* PBXContainerItemProxy */;
+		};
+		521855CE1CE307EA000EF419 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 521855A71CE307EA000EF419 /* deigo */;
+			targetProxy = 521855CD1CE307EA000EF419 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		521855B41CE307EA000EF419 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				521855B51CE307EA000EF419 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		521855B91CE307EA000EF419 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				521855BA1CE307EA000EF419 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		521855D31CE307EA000EF419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		521855D41CE307EA000EF419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		521855D61CE307EA000EF419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5F02F89A4A027B8C81AAB15 /* Pods-deigo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/deigo/PrefixHeader.pch";
+				INFOPLIST_FILE = deigo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.o2obest.deigo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		521855D71CE307EA000EF419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22C85DF3C7FE89F877281D68 /* Pods-deigo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/deigo/PrefixHeader.pch";
+				INFOPLIST_FILE = deigo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.o2obest.deigo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		521855D91CE307EA000EF419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = deigoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.o2obest.deigoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/deigo.app/deigo";
+			};
+			name = Debug;
+		};
+		521855DA1CE307EA000EF419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = deigoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.o2obest.deigoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/deigo.app/deigo";
+			};
+			name = Release;
+		};
+		521855DC1CE307EA000EF419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = deigoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.o2obest.deigoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = deigo;
+			};
+			name = Debug;
+		};
+		521855DD1CE307EA000EF419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = deigoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.o2obest.deigoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = deigo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		521855A31CE307EA000EF419 /* Build configuration list for PBXProject "deigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521855D31CE307EA000EF419 /* Debug */,
+				521855D41CE307EA000EF419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		521855D51CE307EA000EF419 /* Build configuration list for PBXNativeTarget "deigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521855D61CE307EA000EF419 /* Debug */,
+				521855D71CE307EA000EF419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		521855D81CE307EA000EF419 /* Build configuration list for PBXNativeTarget "deigoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521855D91CE307EA000EF419 /* Debug */,
+				521855DA1CE307EA000EF419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		521855DB1CE307EA000EF419 /* Build configuration list for PBXNativeTarget "deigoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521855DC1CE307EA000EF419 /* Debug */,
+				521855DD1CE307EA000EF419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 521855A01CE307EA000EF419 /* Project object */;
+}
