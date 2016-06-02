@@ -15,15 +15,6 @@
 		521855BB1CE307EA000EF419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521855B91CE307EA000EF419 /* LaunchScreen.storyboard */; };
 		521855C61CE307EA000EF419 /* deigoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855C51CE307EA000EF419 /* deigoTests.m */; };
 		521855D11CE307EA000EF419 /* deigoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855D01CE307EA000EF419 /* deigoUITests.m */; };
-		5264CF9C1CFFDE7800C2FCB2 /* SCDGCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF8F1CFFDE7800C2FCB2 /* SCDGCache.m */; };
-		5264CF9D1CFFDE7800C2FCB2 /* SCDGEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF911CFFDE7800C2FCB2 /* SCDGEncryption.m */; };
-		5264CF9E1CFFDE7800C2FCB2 /* SCDGHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF931CFFDE7800C2FCB2 /* SCDGHttpTool.m */; };
-		5264CF9F1CFFDE7800C2FCB2 /* SCDGRemoteControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF951CFFDE7800C2FCB2 /* SCDGRemoteControl.mm */; };
-		5264CFA01CFFDE7800C2FCB2 /* SCDGRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF971CFFDE7800C2FCB2 /* SCDGRSA.m */; };
-		5264CFA11CFFDE7800C2FCB2 /* SCDGSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF991CFFDE7800C2FCB2 /* SCDGSign.m */; };
-		5264CFA21CFFDE7800C2FCB2 /* SCDGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5264CF9B1CFFDE7800C2FCB2 /* SCDGUtils.m */; };
-		5264CFAA1CFFE38600C2FCB2 /* flatbuffers.h.gch in Resources */ = {isa = PBXBuildFile; fileRef = 5264CFA51CFFE38600C2FCB2 /* flatbuffers.h.gch */; };
-		5264CFAB1CFFE38600C2FCB2 /* flatbuffers_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5264CFA81CFFE38600C2FCB2 /* flatbuffers_util.cpp */; };
 		52F8A60E1CF554000043D3F8 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A60D1CF554000043D3F8 /* rsa_public_key.pem */; };
 		52F8A6151CF57F7B0043D3F8 /* server_bin.crt in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A6121CF57F7B0043D3F8 /* server_bin.crt */; };
 		52F8A6161CF57F7B0043D3F8 /* server.crt in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A6131CF57F7B0043D3F8 /* server.crt */; };
@@ -67,30 +58,6 @@
 		521855D01CE307EA000EF419 /* deigoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = deigoUITests.m; sourceTree = "<group>"; };
 		521855D21CE307EA000EF419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521855E21CE30932000EF419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		5264CF8B1CFFDE7800C2FCB2 /* SCDGProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectConstants.h; sourceTree = "<group>"; };
-		5264CF8C1CFFDE7800C2FCB2 /* SCDGProjectHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectHeaders.h; sourceTree = "<group>"; };
-		5264CF8D1CFFDE7800C2FCB2 /* SCDGProjectURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectURLs.h; sourceTree = "<group>"; };
-		5264CF8E1CFFDE7800C2FCB2 /* SCDGCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGCache.h; sourceTree = "<group>"; };
-		5264CF8F1CFFDE7800C2FCB2 /* SCDGCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGCache.m; sourceTree = "<group>"; };
-		5264CF901CFFDE7800C2FCB2 /* SCDGEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGEncryption.h; sourceTree = "<group>"; };
-		5264CF911CFFDE7800C2FCB2 /* SCDGEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGEncryption.m; sourceTree = "<group>"; };
-		5264CF921CFFDE7800C2FCB2 /* SCDGHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGHttpTool.h; sourceTree = "<group>"; };
-		5264CF931CFFDE7800C2FCB2 /* SCDGHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGHttpTool.m; sourceTree = "<group>"; };
-		5264CF941CFFDE7800C2FCB2 /* SCDGRemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGRemoteControl.h; sourceTree = "<group>"; };
-		5264CF951CFFDE7800C2FCB2 /* SCDGRemoteControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SCDGRemoteControl.mm; sourceTree = "<group>"; };
-		5264CF961CFFDE7800C2FCB2 /* SCDGRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGRSA.h; sourceTree = "<group>"; };
-		5264CF971CFFDE7800C2FCB2 /* SCDGRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGRSA.m; sourceTree = "<group>"; };
-		5264CF981CFFDE7800C2FCB2 /* SCDGSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGSign.h; sourceTree = "<group>"; };
-		5264CF991CFFDE7800C2FCB2 /* SCDGSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGSign.m; sourceTree = "<group>"; };
-		5264CF9A1CFFDE7800C2FCB2 /* SCDGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGUtils.h; sourceTree = "<group>"; };
-		5264CF9B1CFFDE7800C2FCB2 /* SCDGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGUtils.m; sourceTree = "<group>"; };
-		5264CFA41CFFE38600C2FCB2 /* flatbuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flatbuffers.h; sourceTree = "<group>"; };
-		5264CFA51CFFE38600C2FCB2 /* flatbuffers.h.gch */ = {isa = PBXFileReference; lastKnownFileType = file; path = flatbuffers.h.gch; sourceTree = "<group>"; };
-		5264CFA81CFFE38600C2FCB2 /* flatbuffers_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flatbuffers_util.cpp; sourceTree = "<group>"; };
-		5264CFA91CFFE38600C2FCB2 /* flatbuffers_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flatbuffers_util.h; sourceTree = "<group>"; };
-		5264CFAC1D000CC600C2FCB2 /* server_message_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server_message_generated.h; sourceTree = "<group>"; };
-		5264CFAD1D000CC600C2FCB2 /* server_msg_response_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server_msg_response_generated.h; sourceTree = "<group>"; };
-		5264CFAE1D000CC600C2FCB2 /* serverlogin_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverlogin_generated.h; sourceTree = "<group>"; };
 		52F8A60D1CF554000043D3F8 /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
 		52F8A6121CF57F7B0043D3F8 /* server_bin.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = server_bin.crt; sourceTree = "<group>"; };
 		52F8A6131CF57F7B0043D3F8 /* server.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = server.crt; sourceTree = "<group>"; };
@@ -128,8 +95,6 @@
 		5218559F1CE307EA000EF419 = {
 			isa = PBXGroup;
 			children = (
-				5264CFA31CFFE38600C2FCB2 /* flatbuffers */,
-				5264CF891CFFDE7800C2FCB2 /* control */,
 				521855AA1CE307EA000EF419 /* deigo */,
 				521855C41CE307EA000EF419 /* deigoTests */,
 				521855CF1CE307EA000EF419 /* deigoUITests */,
@@ -194,44 +159,6 @@
 				521855D21CE307EA000EF419 /* Info.plist */,
 			);
 			path = deigoUITests;
-			sourceTree = "<group>";
-		};
-		5264CF891CFFDE7800C2FCB2 /* control */ = {
-			isa = PBXGroup;
-			children = (
-				5264CF8B1CFFDE7800C2FCB2 /* SCDGProjectConstants.h */,
-				5264CF8C1CFFDE7800C2FCB2 /* SCDGProjectHeaders.h */,
-				5264CF8D1CFFDE7800C2FCB2 /* SCDGProjectURLs.h */,
-				5264CF8E1CFFDE7800C2FCB2 /* SCDGCache.h */,
-				5264CF8F1CFFDE7800C2FCB2 /* SCDGCache.m */,
-				5264CF901CFFDE7800C2FCB2 /* SCDGEncryption.h */,
-				5264CF911CFFDE7800C2FCB2 /* SCDGEncryption.m */,
-				5264CF921CFFDE7800C2FCB2 /* SCDGHttpTool.h */,
-				5264CF931CFFDE7800C2FCB2 /* SCDGHttpTool.m */,
-				5264CF941CFFDE7800C2FCB2 /* SCDGRemoteControl.h */,
-				5264CF951CFFDE7800C2FCB2 /* SCDGRemoteControl.mm */,
-				5264CF961CFFDE7800C2FCB2 /* SCDGRSA.h */,
-				5264CF971CFFDE7800C2FCB2 /* SCDGRSA.m */,
-				5264CF981CFFDE7800C2FCB2 /* SCDGSign.h */,
-				5264CF991CFFDE7800C2FCB2 /* SCDGSign.m */,
-				5264CF9A1CFFDE7800C2FCB2 /* SCDGUtils.h */,
-				5264CF9B1CFFDE7800C2FCB2 /* SCDGUtils.m */,
-			);
-			path = control;
-			sourceTree = "<group>";
-		};
-		5264CFA31CFFE38600C2FCB2 /* flatbuffers */ = {
-			isa = PBXGroup;
-			children = (
-				5264CFA41CFFE38600C2FCB2 /* flatbuffers.h */,
-				5264CFA51CFFE38600C2FCB2 /* flatbuffers.h.gch */,
-				5264CFA81CFFE38600C2FCB2 /* flatbuffers_util.cpp */,
-				5264CFA91CFFE38600C2FCB2 /* flatbuffers_util.h */,
-				5264CFAC1D000CC600C2FCB2 /* server_message_generated.h */,
-				5264CFAD1D000CC600C2FCB2 /* server_msg_response_generated.h */,
-				5264CFAE1D000CC600C2FCB2 /* serverlogin_generated.h */,
-			);
-			path = flatbuffers;
 			sourceTree = "<group>";
 		};
 		578804E9CCACF8E916318DF1 /* Pods */ = {
@@ -360,7 +287,6 @@
 				521855BB1CE307EA000EF419 /* LaunchScreen.storyboard in Resources */,
 				52F8A60E1CF554000043D3F8 /* rsa_public_key.pem in Resources */,
 				52F8A6171CF57F7B0043D3F8 /* server.pubkey in Resources */,
-				5264CFAA1CFFE38600C2FCB2 /* flatbuffers.h.gch in Resources */,
 				521855B81CE307EA000EF419 /* Assets.xcassets in Resources */,
 				521855B61CE307EA000EF419 /* Main.storyboard in Resources */,
 				52F8A6151CF57F7B0043D3F8 /* server_bin.crt in Resources */,
@@ -437,17 +363,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5264CFA01CFFDE7800C2FCB2 /* SCDGRSA.m in Sources */,
-				5264CFA21CFFDE7800C2FCB2 /* SCDGUtils.m in Sources */,
 				521855B31CE307EA000EF419 /* ViewController.mm in Sources */,
-				5264CFA11CFFDE7800C2FCB2 /* SCDGSign.m in Sources */,
-				5264CFAB1CFFE38600C2FCB2 /* flatbuffers_util.cpp in Sources */,
 				521855B01CE307EA000EF419 /* AppDelegate.m in Sources */,
 				521855AD1CE307EA000EF419 /* main.m in Sources */,
-				5264CF9E1CFFDE7800C2FCB2 /* SCDGHttpTool.m in Sources */,
-				5264CF9C1CFFDE7800C2FCB2 /* SCDGCache.m in Sources */,
-				5264CF9F1CFFDE7800C2FCB2 /* SCDGRemoteControl.mm in Sources */,
-				5264CF9D1CFFDE7800C2FCB2 /* SCDGEncryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

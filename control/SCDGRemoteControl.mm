@@ -9,7 +9,6 @@
 #include <vector>
 #include <iostream>
 #include <arpa/inet.h>
-#import "ViewController.h"
 
 #import "flatbuffers.h"
 #import "flatbuffers_util.h"
