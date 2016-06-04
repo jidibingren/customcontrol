@@ -6,6 +6,11 @@
 //  Copyright © 2016年 SC. All rights reserved.
 //
 
+typedef NS_ENUM(NSInteger, SCDGRemoteControlType){
+    SCDGRemoteControlDefault = 0,
+    SCDGRemoteControlCustom,
+};
+
 
 @interface SCDGRemoteControl : NSObject
 
@@ -15,6 +20,7 @@
 @property (nonatomic, strong) NSString *privateTopic;
 @property (nonatomic, strong) NSString *upTopic;
 @property (nonatomic, strong) NSString *deviceToken;
+@property (nonatomic, assign) SCDGRemoteControlType type;
 
 /* you need to set one of the three settings
  * 1.the publickey file content to publicKey
@@ -24,17 +30,18 @@
 @property (nonatomic, strong)NSString *publicKey;
 @property (nonatomic, strong)NSString *publicKeyFileName;
 
-@property (nonatomic, strong) void(^handleMessage)(NSData *data, NSString *topic, BOOL retained);
+@property (nonatomic, strong) void(^handleMessage)(id data, NSString *topic, BOOL retained);
 
 SCDG_DECLARE_SINGLETON()
 
-- (void)loginWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, NSData *data))callback;
+- (void)loginWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, id data))callback;
 
+// params must has the key/value pair @"mid"/xxxx
 - (void)sendMessageReceivedWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, NSString *mid))callback;
 
 - (void)sendMessageReceivedToUpTopic:(NSString *)mid callback:(void(^)(BOOL isSuccessed, NSString *mid))callback;
 
-- (void)requestOfflineMessageWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, NSData *data))callback;
+- (void)requestOfflineMessageWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, id data))callback;
 
 - (void)startupWithHost:(NSString *)host port:(NSInteger)port clientId:(NSString *)clientId user:(NSString *)user pass:(NSString*)pass;
 

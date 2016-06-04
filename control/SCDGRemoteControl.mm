@@ -156,32 +156,42 @@ SCDG_IMPLEMENT_SINGLETON()
 #pragma mark - m
 - (void)handleMessage:(NSData *)data onTopic:(NSString *)topic retained:(BOOL)retained{
     
-    flatbuffers::Verifier *verifier = new flatbuffers::Verifier((uint8_t *)[(NSData*)data bytes], [(NSData*)data length]);
-    
-    if (Msg::Message::VerifyContentBuffer(*verifier)) {
+    if (self.type == SCDGRemoteControlCustom) {
         
-        const Msg::Message::Content *content = Msg::Message::GetContent((uint8_t*)[data bytes]);
-        
-        SCDGCache *cache = [SCDGCache sharedInstance];
-        if (content->messageId()) {
+        if (_handleMessage){
             
-            if (![cache isCachedExecCommand:content->messageId()]) {
+            _handleMessage(data, topic, retained);
+            
+        }
+        
+    }else{
+        
+        if ([FBTable verifier:data]) {
+            
+            MsgMessageContent *message = [MsgMessageContent getRootAs:[[FBMutableData alloc]initWithData:data]];
+            
+            SCDGCache *cache = [SCDGCache sharedInstance];
+            if (message.messageId) {
                 
-                [cache cacheExecCommand:data commandId:content->messageId()];
-                
-                if (_handleMessage){
+                if (![cache isCachedExecCommand:message.messageId]) {
                     
-                    _handleMessage(data, topic, retained);
+                    [cache cacheExecCommand:data commandId:message.messageId];
+                    
+                    if (_handleMessage){
+                        
+                        _handleMessage(message, topic, retained);
+                        
+                    }
+                    
+                }else if ([cache isCachedUncompletedCommand:message.messageId]){
+                    
+                    [self sendMessageReceivedToUpTopic:[NSString stringWithFormat:@"%llu", message.messageId] callback:nil];
                     
                 }
-                
-            }else if ([cache isCachedUncompletedCommand:content->messageId()]){
-                
-                [self sendMessageReceivedToUpTopic:[NSString stringWithFormat:@"%llu", content->messageId()] callback:nil];
-                
             }
         }
     }
+
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -240,93 +250,78 @@ SCDG_IMPLEMENT_SINGLETON()
     
 }
 
-- (void)loginWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, NSData *data))callback{
+- (void)loginWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, id data))callback{
     
     [SCDGHttpTool postWithURL:[NSString stringWithFormat:@"%@%@", _httpUrlPrefix ? _httpUrlPrefix : SCDG_BASEURL, SCDG_LOGIN_URL] params:params success:^(NSDictionary *data) {
         
-        flatbuffers::Verifier *verifier = new flatbuffers::Verifier((uint8_t *)[(NSData*)data bytes], [(NSData*)data length]);
         
-        if (!VerifyServerBuffer(*verifier)) {
+        if (self.type == SCDGRemoteControlCustom) {
+            
             
             if (callback) {
                 
-                callback(NO, nil);
+                callback(YES, data);
                 
             }
             
             return ;
-        }
-        
-//        MsgMqttServer *info = [MsgMqttServer getRootAs:[[FBMutableData alloc]initWithData:(NSData*)data]];
-//        
-//        
-//        uint64_t  host = info.host;
-//        unsigned long int ip = ntohl(host);
-//        in_addr subnetIp;
-//        subnetIp.s_addr = ip & 0xffffffff;
-//        
-//        NSString *ipAddr = [NSString stringWithUTF8String:inet_ntoa(subnetIp)];
-//        uint32_t  port = info.port;
-//        NSString *topic = info.topic;
-//        NSString *user = info.auth.user;
-//        NSString *pass = info.auth.pass;
-        
-        
-        auto obj2 = GetServer((uint8_t*)[(NSData*)data bytes]);
-        
-        cout << obj2->host() << endl;
-        cout << obj2->port() << endl;
-        cout << obj2->topic()->c_str() << endl;
-        cout << obj2->auth()->user()->c_str() << endl;
-        cout << obj2->auth()->pass()->c_str() << endl;
-        
-        unsigned long int ip = ntohl(obj2->host());
-        in_addr subnetIp;
-        subnetIp.s_addr = ip & 0xffffffff;
-        
-        NSString *ipAddr = [NSString stringWithUTF8String:inet_ntoa(subnetIp)];
-        NSInteger port = obj2->port();
-        NSString *user  = [NSString stringWithUTF8String:obj2->auth()->user()->c_str()];
-        NSString *pass  = [NSString stringWithUTF8String:obj2->auth()->pass()->c_str()];
-        self.topic = [NSString stringWithUTF8String:obj2->topic()->c_str()];
-        
-        if (obj2->auth()->device()) {
             
-            self.clientId = [NSString stringWithFormat:@"%lld", obj2->auth()->device()];
+        }else{
             
-        }
-        
-        if (obj2->topic() && obj2->topic()->Length() > 0) {
-            self.topic = [NSString stringWithUTF8String:obj2->topic()->c_str()];
-        }
-        
-        if (obj2->privateTopic() && obj2->privateTopic()->Length() > 0) {
-            self.privateTopic = [NSString stringWithUTF8String:obj2->privateTopic()->c_str()];
-        }
-        
-        if (obj2->upTopic() && obj2->upTopic()->Length() > 0) {
-            self.upTopic = [NSString stringWithUTF8String:obj2->upTopic()->c_str()];
+            if (![FBTable verifier:(NSData*)data]) {
+                
+                if (callback) {
+                    
+                    callback(NO, nil);
+                    
+                }
+                
+                return ;
+            }
+            
+            MsgMqttServer *info = [MsgMqttServer getRootAs:[[FBMutableData alloc]initWithData:(NSData*)data]];
+            
+            
+            uint64_t  host = info.host;
+            unsigned long int ip = ntohl(host);
+            in_addr subnetIp;
+            subnetIp.s_addr = ip & 0xffffffff;
+            
+            NSString *ipAddr = [NSString stringWithUTF8String:inet_ntoa(subnetIp)];
+            uint32_t  port = info.port;
+            NSString *user = info.auth.user;
+            NSString *pass = info.auth.pass;
+            
+            if (info.auth.device) {
+                
+                self.clientId = [NSString stringWithFormat:@"%lld", info.auth.device];
+                
+            }
+            
+            if ([SCDGUtils isValidStr:info.topic]) {
+                self.topic = info.topic;
+            }
+            
+            if ([SCDGUtils isValidStr:info.privateTopic]) {
+                self.privateTopic = info.privateTopic;
+            }
+            
+            if ([SCDGUtils isValidStr:info.upTopic]) {
+                self.upTopic = info.upTopic;
+            }
+            
+            [[SCDGRemoteControl sharedInstance] startupWithHost:ipAddr port:port clientId:nil user:user pass:pass];
+            [[SCDGRemoteControl sharedInstance] subscribeTopic:self.topic];
+            [[SCDGRemoteControl sharedInstance] subscribeTopic:self.privateTopic];
+            [[SCDGRemoteControl sharedInstance] subscribeTopic:self.upTopic];
+            
+            if (callback){
+                
+                callback(YES, data);
+                
+            }
         }
 
-        
-        
-//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//        [userDefaults setObject:ipAddr forKey:@"ipAddr"];
-//        [userDefaults setInteger:port forKey:@"port"];
-//        [userDefaults setObject:topic forKey:@"topic"];
-//        [userDefaults setObject:user forKey:@"user"];
-//        [userDefaults setObject:pass forKey:@"pass"];
-        
-//        [userDefaults synchronize];
-        
-        [[SCDGRemoteControl sharedInstance] startupWithHost:ipAddr port:port clientId:nil user:user pass:pass];
-        [[SCDGRemoteControl sharedInstance] subscribeTopic:self.topic];
-        
-        if (callback){
-            
-            callback(YES, (NSData*)data);
-            
-        }
         
     } failure:^(NSError *error) {
         
@@ -343,18 +338,12 @@ SCDG_IMPLEMENT_SINGLETON()
     
     if (self.upTopic) {
         
-        flatbuffers::FlatBufferBuilder builder;
-        uint8_t platform = 1;
-        auto deviceId = builder.CreateString(self.clientId ? self.clientId.UTF8String : [SCDGUtils getUUID].UTF8String);
+        MsgMessageReceived *received = [[MsgMessageReceived alloc]init];
+        received.platform = 1;
+        received.device = [SCDGUtils isValidStr:self.clientId] ? self.clientId : [SCDGUtils getUUID];
+        received.messageId = (uint64_t)mid.longLongValue;
         
-        // table
-        auto mloc = Msg::Message::CreateReceived(builder, (uint64_t)mid.longLongValue, platform, deviceId);
-        builder.Finish(mloc);
-        
-        char* ptr = (char*)builder.GetBufferPointer();
-        uint64_t size = builder.GetSize();
-        
-        if ([self publish:self.upTopic data:[NSData dataWithBytes:ptr length:(NSInteger)size]]) {
+        if ([self publish:self.upTopic data:[received getData]]) {
             
             [[SCDGCache sharedInstance] removeFromUncompletedCacheBy:mid.longLongValue];
             
@@ -379,23 +368,29 @@ SCDG_IMPLEMENT_SINGLETON()
     
     [SCDGHttpTool getWithURL:[NSString stringWithFormat:@"%@%@", _httpUrlPrefix ? _httpUrlPrefix : SCDG_BASEURL, SCDG_RECEIVED_MSG_URL] params:params success:^(NSDictionary *data) {
         
-        flatbuffers::Verifier *verifier = new flatbuffers::Verifier((uint8_t *)[(NSData*)data bytes], [(NSData*)data length]);
-        
-        if (callback) {
+        if ([FBTable verifier:(NSData*)data]) {
             
-            if (Msg::Response::VerifyBodyBuffer(*verifier)){
+            MsgResponseBody *response = [MsgResponseBody getRootAs:[[FBMutableData alloc]initWithData:(NSData*)data]];
+            
+            
+            [[SCDGCache sharedInstance] removeFromUncompletedCacheBy:[params[@"mid"] longLongValue]];
+            
+            if (callback) {
                 
-                auto response = Msg::Response::GetBody((uint8_t*)[(NSData*)data bytes]);
+                callback((BOOL)response.status, params[@"mid"]);
                 
-                callback(response->status() == 1 ? YES : NO, params[@"mid"]);
-                
-            }else{
+            }
+            
+        }else{
+            
+            if (callback) {
                 
                 callback(NO, params[@"mid"]);
                 
             }
-
+            
         }
+        
     } failure:^(NSError *error) {
         
         if (callback){
@@ -407,7 +402,7 @@ SCDG_IMPLEMENT_SINGLETON()
     }];
 }
 
-- (void)requestOfflineMessageWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, NSData *data))callback{
+- (void)requestOfflineMessageWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, id data))callback{
     
     [SCDGHttpTool getWithURL:[NSString stringWithFormat:@"%@%@", _httpUrlPrefix ? _httpUrlPrefix : SCDG_BASEURL, SCDG_OFFLINE_MSG_URL] params:params success:^(NSDictionary *data) {
         
