@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CustomControl"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "custom control"
   s.homepage     = "https://github.com/jidibingren/customcontrol"
   s.license      = 'MIT'

@@ -15,26 +15,6 @@
 		521855BB1CE307EA000EF419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521855B91CE307EA000EF419 /* LaunchScreen.storyboard */; };
 		521855C61CE307EA000EF419 /* deigoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855C51CE307EA000EF419 /* deigoTests.m */; };
 		521855D11CE307EA000EF419 /* deigoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 521855D01CE307EA000EF419 /* deigoUITests.m */; };
-		52AD82151D12301B0009C956 /* SCDGCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD81EF1D12301B0009C956 /* SCDGCache.m */; };
-		52AD82161D12301B0009C956 /* SCDGEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD81F11D12301B0009C956 /* SCDGEncryption.m */; };
-		52AD82171D12301B0009C956 /* SCDGHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD81F31D12301B0009C956 /* SCDGHttpTool.m */; };
-		52AD82181D12301B0009C956 /* SCDGRemoteControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52AD81F81D12301B0009C956 /* SCDGRemoteControl.mm */; };
-		52AD82191D12301B0009C956 /* SCDGRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD81FA1D12301B0009C956 /* SCDGRSA.m */; };
-		52AD821A1D12301B0009C956 /* SCDGSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD81FC1D12301B0009C956 /* SCDGSign.m */; };
-		52AD821B1D12301B0009C956 /* SCDGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD81FE1D12301B0009C956 /* SCDGUtils.m */; };
-		52AD821C1D12301B0009C956 /* flatbuffers.h.gch in Resources */ = {isa = PBXBuildFile; fileRef = 52AD82011D12301B0009C956 /* flatbuffers.h.gch */; };
-		52AD821D1D12301B0009C956 /* flatbuffers_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82021D12301B0009C956 /* flatbuffers_util.cpp */; };
-		52AD821E1D12301B0009C956 /* MsgMessageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82051D12301B0009C956 /* MsgMessageContent.m */; };
-		52AD821F1D12301B0009C956 /* MsgMessageReceived.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82071D12301B0009C956 /* MsgMessageReceived.m */; };
-		52AD82201D12301B0009C956 /* MsgMqttAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82091D12301B0009C956 /* MsgMqttAuth.m */; };
-		52AD82211D12301B0009C956 /* MsgMqttServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD820B1D12301B0009C956 /* MsgMqttServer.m */; };
-		52AD82221D12301B0009C956 /* MsgResponseBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD820D1D12301B0009C956 /* MsgResponseBody.m */; };
-		52AD82261D1232A00009C956 /* SCDGControlInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82251D1232A00009C956 /* SCDGControlInfo.m */; };
-		52AD82291D1237D10009C956 /* SCDGConfigs.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82281D1237D10009C956 /* SCDGConfigs.m */; };
-		52AD822D1D1243BB0009C956 /* NSObject+SCDG.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD822C1D1243BB0009C956 /* NSObject+SCDG.m */; };
-		52AD82311D1274D90009C956 /* SCDGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82301D1274D90009C956 /* SCDGView.m */; };
-		52AD82341D12827C0009C956 /* SCDGLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82331D12827C0009C956 /* SCDGLabel.m */; };
-		52AD82371D1282A20009C956 /* SCDGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AD82361D1282A20009C956 /* SCDGButton.m */; };
 		52F8A60E1CF554000043D3F8 /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A60D1CF554000043D3F8 /* rsa_public_key.pem */; };
 		52F8A6151CF57F7B0043D3F8 /* server_bin.crt in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A6121CF57F7B0043D3F8 /* server_bin.crt */; };
 		52F8A6161CF57F7B0043D3F8 /* server.crt in Resources */ = {isa = PBXBuildFile; fileRef = 52F8A6131CF57F7B0043D3F8 /* server.crt */; };
@@ -78,54 +58,6 @@
 		521855D01CE307EA000EF419 /* deigoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = deigoUITests.m; sourceTree = "<group>"; };
 		521855D21CE307EA000EF419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521855E21CE30932000EF419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		52AD81EE1D12301B0009C956 /* SCDGCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGCache.h; sourceTree = "<group>"; };
-		52AD81EF1D12301B0009C956 /* SCDGCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGCache.m; sourceTree = "<group>"; };
-		52AD81F01D12301B0009C956 /* SCDGEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGEncryption.h; sourceTree = "<group>"; };
-		52AD81F11D12301B0009C956 /* SCDGEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGEncryption.m; sourceTree = "<group>"; };
-		52AD81F21D12301B0009C956 /* SCDGHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGHttpTool.h; sourceTree = "<group>"; };
-		52AD81F31D12301B0009C956 /* SCDGHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGHttpTool.m; sourceTree = "<group>"; };
-		52AD81F41D12301B0009C956 /* SCDGProjectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectConstants.h; sourceTree = "<group>"; };
-		52AD81F51D12301B0009C956 /* SCDGProjectHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectHeaders.h; sourceTree = "<group>"; };
-		52AD81F61D12301B0009C956 /* SCDGProjectURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGProjectURLs.h; sourceTree = "<group>"; };
-		52AD81F71D12301B0009C956 /* SCDGRemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGRemoteControl.h; sourceTree = "<group>"; };
-		52AD81F81D12301B0009C956 /* SCDGRemoteControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SCDGRemoteControl.mm; sourceTree = "<group>"; };
-		52AD81F91D12301B0009C956 /* SCDGRSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGRSA.h; sourceTree = "<group>"; };
-		52AD81FA1D12301B0009C956 /* SCDGRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGRSA.m; sourceTree = "<group>"; };
-		52AD81FB1D12301B0009C956 /* SCDGSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGSign.h; sourceTree = "<group>"; };
-		52AD81FC1D12301B0009C956 /* SCDGSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGSign.m; sourceTree = "<group>"; };
-		52AD81FD1D12301B0009C956 /* SCDGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGUtils.h; sourceTree = "<group>"; };
-		52AD81FE1D12301B0009C956 /* SCDGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGUtils.m; sourceTree = "<group>"; };
-		52AD82001D12301B0009C956 /* flatbuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flatbuffers.h; sourceTree = "<group>"; };
-		52AD82011D12301B0009C956 /* flatbuffers.h.gch */ = {isa = PBXFileReference; lastKnownFileType = file; path = flatbuffers.h.gch; sourceTree = "<group>"; };
-		52AD82021D12301B0009C956 /* flatbuffers_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flatbuffers_util.cpp; sourceTree = "<group>"; };
-		52AD82031D12301B0009C956 /* flatbuffers_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flatbuffers_util.h; sourceTree = "<group>"; };
-		52AD82041D12301B0009C956 /* MsgMessageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgMessageContent.h; sourceTree = "<group>"; };
-		52AD82051D12301B0009C956 /* MsgMessageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgMessageContent.m; sourceTree = "<group>"; };
-		52AD82061D12301B0009C956 /* MsgMessageReceived.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgMessageReceived.h; sourceTree = "<group>"; };
-		52AD82071D12301B0009C956 /* MsgMessageReceived.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgMessageReceived.m; sourceTree = "<group>"; };
-		52AD82081D12301B0009C956 /* MsgMqttAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgMqttAuth.h; sourceTree = "<group>"; };
-		52AD82091D12301B0009C956 /* MsgMqttAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgMqttAuth.m; sourceTree = "<group>"; };
-		52AD820A1D12301B0009C956 /* MsgMqttServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgMqttServer.h; sourceTree = "<group>"; };
-		52AD820B1D12301B0009C956 /* MsgMqttServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgMqttServer.m; sourceTree = "<group>"; };
-		52AD820C1D12301B0009C956 /* MsgResponseBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgResponseBody.h; sourceTree = "<group>"; };
-		52AD820D1D12301B0009C956 /* MsgResponseBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgResponseBody.m; sourceTree = "<group>"; };
-		52AD820E1D12301B0009C956 /* server_message_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server_message_generated.h; sourceTree = "<group>"; };
-		52AD820F1D12301B0009C956 /* server_message_received_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server_message_received_generated.h; sourceTree = "<group>"; };
-		52AD82101D12301B0009C956 /* server_msg_response_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server_msg_response_generated.h; sourceTree = "<group>"; };
-		52AD82111D12301B0009C956 /* serverlogin_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = serverlogin_generated.h; sourceTree = "<group>"; };
-		52AD82241D1232A00009C956 /* SCDGControlInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGControlInfo.h; sourceTree = "<group>"; };
-		52AD82251D1232A00009C956 /* SCDGControlInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGControlInfo.m; sourceTree = "<group>"; };
-		52AD82271D1237D10009C956 /* SCDGConfigs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGConfigs.h; sourceTree = "<group>"; };
-		52AD82281D1237D10009C956 /* SCDGConfigs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGConfigs.m; sourceTree = "<group>"; };
-		52AD822B1D1243BB0009C956 /* NSObject+SCDG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SCDG.h"; sourceTree = "<group>"; };
-		52AD822C1D1243BB0009C956 /* NSObject+SCDG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SCDG.m"; sourceTree = "<group>"; };
-		52AD822E1D1256400009C956 /* SCDGAdditionHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDGAdditionHeaders.h; sourceTree = "<group>"; };
-		52AD822F1D1274D90009C956 /* SCDGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGView.h; sourceTree = "<group>"; };
-		52AD82301D1274D90009C956 /* SCDGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGView.m; sourceTree = "<group>"; };
-		52AD82321D12827C0009C956 /* SCDGLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGLabel.h; sourceTree = "<group>"; };
-		52AD82331D12827C0009C956 /* SCDGLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGLabel.m; sourceTree = "<group>"; };
-		52AD82351D1282A20009C956 /* SCDGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDGButton.h; sourceTree = "<group>"; };
-		52AD82361D1282A20009C956 /* SCDGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDGButton.m; sourceTree = "<group>"; };
 		52F8A60D1CF554000043D3F8 /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
 		52F8A6121CF57F7B0043D3F8 /* server_bin.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = server_bin.crt; sourceTree = "<group>"; };
 		52F8A6131CF57F7B0043D3F8 /* server.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = server.crt; sourceTree = "<group>"; };
@@ -163,9 +95,6 @@
 		5218559F1CE307EA000EF419 = {
 			isa = PBXGroup;
 			children = (
-				52AD822A1D1243BB0009C956 /* additions */,
-				52AD81ED1D12301B0009C956 /* control */,
-				52AD81FF1D12301B0009C956 /* flatbuffers */,
 				521855AA1CE307EA000EF419 /* deigo */,
 				521855C41CE307EA000EF419 /* deigoTests */,
 				521855CF1CE307EA000EF419 /* deigoUITests */,
@@ -230,75 +159,6 @@
 				521855D21CE307EA000EF419 /* Info.plist */,
 			);
 			path = deigoUITests;
-			sourceTree = "<group>";
-		};
-		52AD81ED1D12301B0009C956 /* control */ = {
-			isa = PBXGroup;
-			children = (
-				52AD81EE1D12301B0009C956 /* SCDGCache.h */,
-				52AD81EF1D12301B0009C956 /* SCDGCache.m */,
-				52AD81F01D12301B0009C956 /* SCDGEncryption.h */,
-				52AD81F11D12301B0009C956 /* SCDGEncryption.m */,
-				52AD81F21D12301B0009C956 /* SCDGHttpTool.h */,
-				52AD81F31D12301B0009C956 /* SCDGHttpTool.m */,
-				52AD81F41D12301B0009C956 /* SCDGProjectConstants.h */,
-				52AD81F51D12301B0009C956 /* SCDGProjectHeaders.h */,
-				52AD81F61D12301B0009C956 /* SCDGProjectURLs.h */,
-				52AD81F71D12301B0009C956 /* SCDGRemoteControl.h */,
-				52AD81F81D12301B0009C956 /* SCDGRemoteControl.mm */,
-				52AD81F91D12301B0009C956 /* SCDGRSA.h */,
-				52AD81FA1D12301B0009C956 /* SCDGRSA.m */,
-				52AD81FB1D12301B0009C956 /* SCDGSign.h */,
-				52AD81FC1D12301B0009C956 /* SCDGSign.m */,
-				52AD81FD1D12301B0009C956 /* SCDGUtils.h */,
-				52AD81FE1D12301B0009C956 /* SCDGUtils.m */,
-				52AD82241D1232A00009C956 /* SCDGControlInfo.h */,
-				52AD82251D1232A00009C956 /* SCDGControlInfo.m */,
-				52AD82271D1237D10009C956 /* SCDGConfigs.h */,
-				52AD82281D1237D10009C956 /* SCDGConfigs.m */,
-			);
-			path = control;
-			sourceTree = "<group>";
-		};
-		52AD81FF1D12301B0009C956 /* flatbuffers */ = {
-			isa = PBXGroup;
-			children = (
-				52AD82001D12301B0009C956 /* flatbuffers.h */,
-				52AD82011D12301B0009C956 /* flatbuffers.h.gch */,
-				52AD82021D12301B0009C956 /* flatbuffers_util.cpp */,
-				52AD82031D12301B0009C956 /* flatbuffers_util.h */,
-				52AD82041D12301B0009C956 /* MsgMessageContent.h */,
-				52AD82051D12301B0009C956 /* MsgMessageContent.m */,
-				52AD82061D12301B0009C956 /* MsgMessageReceived.h */,
-				52AD82071D12301B0009C956 /* MsgMessageReceived.m */,
-				52AD82081D12301B0009C956 /* MsgMqttAuth.h */,
-				52AD82091D12301B0009C956 /* MsgMqttAuth.m */,
-				52AD820A1D12301B0009C956 /* MsgMqttServer.h */,
-				52AD820B1D12301B0009C956 /* MsgMqttServer.m */,
-				52AD820C1D12301B0009C956 /* MsgResponseBody.h */,
-				52AD820D1D12301B0009C956 /* MsgResponseBody.m */,
-				52AD820E1D12301B0009C956 /* server_message_generated.h */,
-				52AD820F1D12301B0009C956 /* server_message_received_generated.h */,
-				52AD82101D12301B0009C956 /* server_msg_response_generated.h */,
-				52AD82111D12301B0009C956 /* serverlogin_generated.h */,
-			);
-			path = flatbuffers;
-			sourceTree = "<group>";
-		};
-		52AD822A1D1243BB0009C956 /* additions */ = {
-			isa = PBXGroup;
-			children = (
-				52AD822B1D1243BB0009C956 /* NSObject+SCDG.h */,
-				52AD822C1D1243BB0009C956 /* NSObject+SCDG.m */,
-				52AD822F1D1274D90009C956 /* SCDGView.h */,
-				52AD82301D1274D90009C956 /* SCDGView.m */,
-				52AD82321D12827C0009C956 /* SCDGLabel.h */,
-				52AD82331D12827C0009C956 /* SCDGLabel.m */,
-				52AD82351D1282A20009C956 /* SCDGButton.h */,
-				52AD82361D1282A20009C956 /* SCDGButton.m */,
-				52AD822E1D1256400009C956 /* SCDGAdditionHeaders.h */,
-			);
-			path = additions;
 			sourceTree = "<group>";
 		};
 		578804E9CCACF8E916318DF1 /* Pods */ = {
@@ -427,7 +287,6 @@
 				521855BB1CE307EA000EF419 /* LaunchScreen.storyboard in Resources */,
 				52F8A60E1CF554000043D3F8 /* rsa_public_key.pem in Resources */,
 				52F8A6171CF57F7B0043D3F8 /* server.pubkey in Resources */,
-				52AD821C1D12301B0009C956 /* flatbuffers.h.gch in Resources */,
 				521855B81CE307EA000EF419 /* Assets.xcassets in Resources */,
 				521855B61CE307EA000EF419 /* Main.storyboard in Resources */,
 				52F8A6151CF57F7B0043D3F8 /* server_bin.crt in Resources */,
@@ -504,28 +363,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52AD82221D12301B0009C956 /* MsgResponseBody.m in Sources */,
-				52AD82311D1274D90009C956 /* SCDGView.m in Sources */,
-				52AD821A1D12301B0009C956 /* SCDGSign.m in Sources */,
-				52AD821D1D12301B0009C956 /* flatbuffers_util.cpp in Sources */,
-				52AD82371D1282A20009C956 /* SCDGButton.m in Sources */,
-				52AD82291D1237D10009C956 /* SCDGConfigs.m in Sources */,
 				521855B31CE307EA000EF419 /* ViewController.mm in Sources */,
-				52AD82261D1232A00009C956 /* SCDGControlInfo.m in Sources */,
-				52AD82181D12301B0009C956 /* SCDGRemoteControl.mm in Sources */,
-				52AD82161D12301B0009C956 /* SCDGEncryption.m in Sources */,
-				52AD821E1D12301B0009C956 /* MsgMessageContent.m in Sources */,
-				52AD82191D12301B0009C956 /* SCDGRSA.m in Sources */,
 				521855B01CE307EA000EF419 /* AppDelegate.m in Sources */,
-				52AD82341D12827C0009C956 /* SCDGLabel.m in Sources */,
-				52AD822D1D1243BB0009C956 /* NSObject+SCDG.m in Sources */,
 				521855AD1CE307EA000EF419 /* main.m in Sources */,
-				52AD82171D12301B0009C956 /* SCDGHttpTool.m in Sources */,
-				52AD821B1D12301B0009C956 /* SCDGUtils.m in Sources */,
-				52AD82201D12301B0009C956 /* MsgMqttAuth.m in Sources */,
-				52AD82211D12301B0009C956 /* MsgMqttServer.m in Sources */,
-				52AD821F1D12301B0009C956 /* MsgMessageReceived.m in Sources */,
-				52AD82151D12301B0009C956 /* SCDGCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
