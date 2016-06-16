@@ -36,9 +36,9 @@
 
 }
 
-- (uint64_t) device {
+- (NSString *) device {
 
-    _device = [self fb_getUint64:8 origin:_device];
+    _device = [self fb_getString:8 origin:_device];
 
     return _device;
 
@@ -46,7 +46,7 @@
 
 - (void) add_device {
 
-    [self fb_addUint64:_device voffset:8 offset:12];
+    [self fb_addString:_device voffset:8 offset:12];
 
     return ;
 
@@ -58,7 +58,7 @@
 
         bb_pos = 16;
 
-        origin_size = 20+bb_pos;
+        origin_size = 16+bb_pos;
 
         bb = [[FBMutableData alloc]initWithLength:origin_size];
 
@@ -68,7 +68,7 @@
 
         [bb setInt16:10 offset:bb_pos-[bb getInt32:bb_pos]];
 
-        [bb setInt16:20 offset:bb_pos-[bb getInt32:bb_pos]+2];
+        [bb setInt16:16 offset:bb_pos-[bb getInt32:bb_pos]+2];
 
     }
 

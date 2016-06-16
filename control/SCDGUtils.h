@@ -134,6 +134,10 @@
 
 + (NSString*)getNonce;
 
++ (UIColor *)getColor:(NSString *)hexColor;
+
++ (NSString*) remoteControlNotifactionNameWith:(uint32_t)acceptorId;
+
 // 申明一个静态方法sharedInstance，同时屏蔽init方法，使这个类成为单例
 #define SCDG_DECLARE_SINGLETON() +(instancetype)sharedInstance; \
     -(instancetype) init __attribute__((unavailable("init not available")));

@@ -88,16 +88,17 @@
 //        ;
 //    }];
     
-    [SCDGRemoteControl sharedInstance].httpUrlPrefix = @"http://192.168.1.230";
+    [SCDGRemoteControl sharedInstance].httpUrlPrefix = @"http://api.msg.yiliangche.cn";
+//    [SCDGRemoteControl sharedInstance].httpUrlPrefix = @"http://192.168.1.230";
 //    [SCDGRemoteControl sharedInstance].httpUrlPrefix = @"http://192.168.1.102";
     
     [[SCDGRemoteControl sharedInstance] loginWithParams:nil callback:^(BOOL isSuccessed, NSData *data) {
         ;
     }];
     
-    [SCDGRemoteControl sharedInstance].handleMessage = ^(NSData *data, NSString *topic, BOOL retained){
+    [SCDGRemoteControl sharedInstance].handleMessage = ^(MsgMessageContent *data, NSString *topic, BOOL retained){
         
-        NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSString *dataString = [[NSString alloc] initWithData:[[data getByteBuffer] data] encoding:NSUTF8StringEncoding];
         NSLog(@"received data %@", dataString);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [SCDGUtils alert:dataString];

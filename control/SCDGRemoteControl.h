@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, SCDGRemoteControlType){
 
 @interface SCDGRemoteControl : NSObject
 
+@property (nonatomic, assign) BOOL     enableTLS;
 @property (nonatomic, strong) NSString *httpUrlPrefix;
 @property (nonatomic, strong) NSString *clientId;
 @property (nonatomic, strong) NSString *topic;
@@ -30,11 +31,14 @@ typedef NS_ENUM(NSInteger, SCDGRemoteControlType){
 @property (nonatomic, strong)NSString *publicKey;
 @property (nonatomic, strong)NSString *publicKeyFileName;
 
+// if type is SCDGRemoteControlDefault the data is SCDGControlInfo instance
 @property (nonatomic, strong) void(^handleMessage)(id data, NSString *topic, BOOL retained);
 
 SCDG_DECLARE_SINGLETON()
 
 - (void)loginWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, id data))callback;
+
+- (void)logout;
 
 // params must has the key/value pair @"mid"/xxxx
 - (void)sendMessageReceivedWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, NSString *mid))callback;

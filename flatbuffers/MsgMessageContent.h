@@ -15,7 +15,7 @@
 
 @property (nonatomic, assign)uint8_t action;
 
-@property (nonatomic, assign)uint32_t acceptor_id;
+@property (nonatomic, assign)uint32_t acceptorId;
 
 @property (nonatomic, assign)uint64_t start;
 

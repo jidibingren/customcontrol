@@ -40,7 +40,7 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
     params = [params mutableCopy];
     
     [params setValue:[SCDGUtils getUUID] forKey:@"device"];
-    [params setValue:@"2" forKey:@"platform"];
+    [params setValue:@"1" forKey:@"platform"];
     [params setValue:[SCDGUtils getCurrentVersionFull] forKey:@"version"];
     
     

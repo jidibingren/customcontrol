@@ -14,6 +14,7 @@
 //#define SCDG_LOGIN_URL                   @"/serverlogin1.bin"
 //#define SCDG_LOGIN_URL                   @"/serverlogin.bin"
 //#define SCDG_LOGIN_URL                   @"http://192.168.1.65/serverlogin11.bin"
+#define SCDG_LOGOUT_URL                  @"/msg/server/logout.bin"
 #define SCDG_SEND_MSG_URL                @"/msg/message/send.bin?id=%@&content=%@&version=%@&platform=%@&type=%@"
 #define SCDG_RECEIVED_MSG_URL            @"/msg/message/received.bin"
 #define SCDG_OFFLINE_MSG_URL             @"/zgj/user/mobile/user/register/gettelcode"

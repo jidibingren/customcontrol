@@ -11,6 +11,7 @@
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 // Thrid part
 #import "AFNetworking.h"
@@ -19,6 +20,7 @@
 //#import <UIView+Toast.h>
 #import "YYCache.h"
 #import "XRSA.h"
+#import "Realm.h"
 
 //#import "FBConstants.h"
 //#import "FBMutableArray.h"
@@ -37,6 +39,12 @@
 #import "SCDGEncryption.h"
 #import "SCDGSign.h"
 #import "SCDGRSA.h"
+#import "SCDGControlInfo.h"
+#import "SCDGConfigs.h"
+#import "NSObject+SCDG.h"
+#import "SCDGView.h"
+#import "SCDGLabel.h"
+#import "SCDGButton.h"
 
 
 #import "FBConstants.h"

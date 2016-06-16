@@ -67,7 +67,7 @@ struct Server FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_PRIVATETOPIC = 14,
     VT_UPTOPIC = 16
   };
-  uint64_t host() const { return GetField<uint64_t>(VT_HOST, 0); }
+  const flatbuffers::String *host() const { return GetPointer<const flatbuffers::String *>(VT_HOST); }
   uint32_t port() const { return GetField<uint32_t>(VT_PORT, 0); }
   const flatbuffers::String *topic() const { return GetPointer<const flatbuffers::String *>(VT_TOPIC); }
   uint32_t time() const { return GetField<uint32_t>(VT_TIME, 0); }
@@ -76,7 +76,8 @@ struct Server FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::String *upTopic() const { return GetPointer<const flatbuffers::String *>(VT_UPTOPIC); }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<uint64_t>(verifier, VT_HOST) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_HOST) &&
+           verifier.Verify(host()) &&
            VerifyField<uint32_t>(verifier, VT_PORT) &&
            VerifyField<flatbuffers::uoffset_t>(verifier, VT_TOPIC) &&
            verifier.Verify(topic()) &&
@@ -94,7 +95,7 @@ struct Server FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 struct ServerBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
-  void add_host(uint64_t host) { fbb_.AddElement<uint64_t>(Server::VT_HOST, host, 0); }
+  void add_host(flatbuffers::Offset<flatbuffers::String> host) { fbb_.AddOffset(Server::VT_HOST, host); }
   void add_port(uint32_t port) { fbb_.AddElement<uint32_t>(Server::VT_PORT, port, 0); }
   void add_topic(flatbuffers::Offset<flatbuffers::String> topic) { fbb_.AddOffset(Server::VT_TOPIC, topic); }
   void add_time(uint32_t time) { fbb_.AddElement<uint32_t>(Server::VT_TIME, time, 0); }
@@ -110,7 +111,7 @@ struct ServerBuilder {
 };
 
 inline flatbuffers::Offset<Server> CreateServer(flatbuffers::FlatBufferBuilder &_fbb,
-   uint64_t host = 0,
+   flatbuffers::Offset<flatbuffers::String> host = 0,
    uint32_t port = 0,
    flatbuffers::Offset<flatbuffers::String> topic = 0,
    uint32_t time = 0,
@@ -118,13 +119,13 @@ inline flatbuffers::Offset<Server> CreateServer(flatbuffers::FlatBufferBuilder &
    flatbuffers::Offset<flatbuffers::String> privateTopic = 0,
    flatbuffers::Offset<flatbuffers::String> upTopic = 0) {
   ServerBuilder builder_(_fbb);
-  builder_.add_host(host);
   builder_.add_upTopic(upTopic);
   builder_.add_privateTopic(privateTopic);
   builder_.add_auth(auth);
   builder_.add_time(time);
   builder_.add_topic(topic);
   builder_.add_port(port);
+  builder_.add_host(host);
   return builder_.Finish();
 }
 

@@ -84,17 +84,17 @@
 
 }
 
-- (uint32_t) acceptor_id {
+- (uint32_t) acceptorId {
 
-    _acceptor_id = [self fb_getUint32:14 origin:_acceptor_id];
+    _acceptorId = [self fb_getUint32:14 origin:_acceptorId];
 
-    return _acceptor_id;
+    return _acceptorId;
 
 }
 
-- (void) add_acceptor_id {
+- (void) add_acceptorId {
 
-    [self fb_addUint32:_acceptor_id voffset:14 offset:19];
+    [self fb_addUint32:_acceptorId voffset:14 offset:19];
 
     return ;
 

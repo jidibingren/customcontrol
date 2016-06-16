@@ -9,6 +9,6 @@
 
 @property (nonatomic, strong)NSString *pass;
 
-@property (nonatomic, assign)uint64_t device;
+@property (nonatomic, strong)NSString *device;
 
 @end

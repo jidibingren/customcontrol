@@ -66,7 +66,7 @@ SCDG_IMPLEMENT_SINGLETON()
                                        };
         [self.manager connectTo:[SCDGUtils isValidStr:host] ? host : kHost
                            port: port >= 0 ? port : kPort
-                                    tls:NO
+                                    tls:_enableTLS
                               keepalive:60
                                   clean:NO
                                    auth:YES
@@ -148,12 +148,31 @@ SCDG_IMPLEMENT_SINGLETON()
 }
 
 - (void)stop{
-
+    
+    [self unsubscribeTopic:self.topic];
+    [self unsubscribeTopic:self.privateTopic];
+    [self unsubscribeTopic:self.upTopic];
     [self.manager disconnect];
 
 }
 
 #pragma mark - m
+
+- (SCDGControlInfo *)controlInfoFrom:(MsgMessageContent*)message{
+    
+    SCDGControlInfo *temp = [[SCDGControlInfo alloc] init];
+    temp.messageId = message.messageId;
+    temp.platform = message.platform;
+    temp.version = message.version;
+    temp.type = message.type;
+    temp.action = message.action;
+    temp.acceptorId = message.acceptorId;
+    temp.start = message.start;
+    temp.end = message.end;
+    temp.payload = message.payload;
+    
+    return temp;
+}
 - (void)handleMessage:(NSData *)data onTopic:(NSString *)topic retained:(BOOL)retained{
     
     if (self.type == SCDGRemoteControlCustom) {
@@ -168,24 +187,31 @@ SCDG_IMPLEMENT_SINGLETON()
         
         if ([FBTable verifier:data]) {
             
-            MsgMessageContent *message = [MsgMessageContent getRootAs:[[FBMutableData alloc]initWithData:data]];
+            MsgMessageContent *message = [MsgMessageContent getRootAs:data];
             
             SCDGCache *cache = [SCDGCache sharedInstance];
-            if (message.messageId) {
+            if (message.messageId && [[SCDGUtils getCurrentVersionShort] compare:message.version options:NSNumericSearch] == 0) {
                 
                 if (![cache isCachedExecCommand:message.messageId]) {
                     
                     [cache cacheExecCommand:data commandId:message.messageId];
                     
-                    if (_handleMessage){
+                    SCDGControlInfo *controlInfo = [self controlInfoFrom:message];
+                    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:controlInfo callback:^{
                         
-                        _handleMessage(message, topic, retained);
+                        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:controlInfo];
                         
-                    }
+                        if (_handleMessage){
+                            
+                            _handleMessage(controlInfo, topic, retained);
+                            
+                        }
+                    }];
                     
                 }else if ([cache isCachedUncompletedCommand:message.messageId]){
                     
-                    [self sendMessageReceivedToUpTopic:[NSString stringWithFormat:@"%llu", message.messageId] callback:nil];
+//                    [self sendMessageReceivedToUpTopic:[NSString stringWithFormat:@"%llu", message.messageId] callback:nil];
+                    [self sendMessageReceivedWithParams:@{@"mid":[NSString stringWithFormat:@"%llu", message.messageId]} callback:nil];
                     
                 }
             }
@@ -252,7 +278,8 @@ SCDG_IMPLEMENT_SINGLETON()
 
 - (void)loginWithParams:(NSDictionary *)params callback:(void(^)(BOOL isSuccessed, id data))callback{
     
-    [SCDGHttpTool postWithURL:[NSString stringWithFormat:@"%@%@", _httpUrlPrefix ? _httpUrlPrefix : SCDG_BASEURL, SCDG_LOGIN_URL] params:params success:^(NSDictionary *data) {
+    __weak SCDGRemoteControl *wself = self;
+    [SCDGHttpTool getWithURL:[NSString stringWithFormat:@"%@%@", _httpUrlPrefix ? _httpUrlPrefix : SCDG_BASEURL, SCDG_LOGIN_URL] params:params success:^(NSDictionary *data) {
         
         
         if (self.type == SCDGRemoteControlCustom) {
@@ -279,22 +306,23 @@ SCDG_IMPLEMENT_SINGLETON()
                 return ;
             }
             
-            MsgMqttServer *info = [MsgMqttServer getRootAs:[[FBMutableData alloc]initWithData:(NSData*)data]];
+            MsgMqttServer *info = [MsgMqttServer getRootAs:(NSData*)data];
             
             
-            uint64_t  host = info.host;
-            unsigned long int ip = ntohl(host);
-            in_addr subnetIp;
-            subnetIp.s_addr = ip & 0xffffffff;
+//            uint64_t  host = info.host;
+//            unsigned long int ip = ntohl(host);
+//            in_addr subnetIp;
+//            subnetIp.s_addr = ip & 0xffffffff;
             
-            NSString *ipAddr = [NSString stringWithUTF8String:inet_ntoa(subnetIp)];
+//            NSString *ipAddr = [NSString stringWithUTF8String:inet_ntoa(subnetIp)];
+            NSString *ipAddr = info.host;
             uint32_t  port = info.port;
             NSString *user = info.auth.user;
             NSString *pass = info.auth.pass;
             
-            if (info.auth.device) {
+            if ([SCDGUtils isValidStr:info.auth.device]) {
                 
-                self.clientId = [NSString stringWithFormat:@"%lld", info.auth.device];
+                self.clientId = info.auth.device;
                 
             }
             
@@ -306,19 +334,19 @@ SCDG_IMPLEMENT_SINGLETON()
                 self.privateTopic = info.privateTopic;
             }
             
-            if ([SCDGUtils isValidStr:info.upTopic]) {
-                self.upTopic = info.upTopic;
-            }
-            
-            [[SCDGRemoteControl sharedInstance] startupWithHost:ipAddr port:port clientId:nil user:user pass:pass];
-            [[SCDGRemoteControl sharedInstance] subscribeTopic:self.topic];
-            [[SCDGRemoteControl sharedInstance] subscribeTopic:self.privateTopic];
-            [[SCDGRemoteControl sharedInstance] subscribeTopic:self.upTopic];
-            
-            if (callback){
+            if (info.enable_mqtt == 1) {
                 
-                callback(YES, data);
+                wself.enableTLS = info.enable_tls;
+                [wself startupWithHost:ipAddr port:port clientId:self.clientId user:user pass:pass];
+                [wself subscribeTopic:self.topic];
+                [wself subscribeTopic:self.privateTopic];
+                [wself subscribeTopic:self.upTopic];
                 
+                if (callback){
+                    
+                    callback(YES, data);
+                    
+                }
             }
         }
 
@@ -332,6 +360,22 @@ SCDG_IMPLEMENT_SINGLETON()
         }
         
     }];
+}
+
+- (void)logout{
+    
+    [self stop];
+    
+    [SCDGHttpTool getWithURL:[NSString stringWithFormat:@"%@%@", _httpUrlPrefix ? _httpUrlPrefix : SCDG_BASEURL, SCDG_LOGOUT_URL] params:nil success:^(NSDictionary *data) {
+        
+        
+        if ([FBTable verifier:(NSData*)data]) {
+            
+//            MsgResponseBody *response = [MsgResponseBody getRootAs:(NSData*)data];
+            
+        }
+        
+    } failure:nil];
 }
 
 - (void)sendMessageReceivedToUpTopic:(NSString *)mid callback:(void(^)(BOOL isSuccessed, NSString *mid))callback{
@@ -370,7 +414,7 @@ SCDG_IMPLEMENT_SINGLETON()
         
         if ([FBTable verifier:(NSData*)data]) {
             
-            MsgResponseBody *response = [MsgResponseBody getRootAs:[[FBMutableData alloc]initWithData:(NSData*)data]];
+            MsgResponseBody *response = [MsgResponseBody getRootAs:(NSData*)data];
             
             
             [[SCDGCache sharedInstance] removeFromUncompletedCacheBy:[params[@"mid"] longLongValue]];
