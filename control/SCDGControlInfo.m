@@ -10,4 +10,16 @@
 
 @implementation SCDGControlInfo
 
++ (NSString *)primaryKey {
+    
+    return @"primaryId";
+    
+}
+
+- (NSString *)primaryId {
+    
+    return [NSString stringWithFormat:@"%03d%03d%010d", self.type, self.action, self.acceptorId];
+    
+}
+
 @end

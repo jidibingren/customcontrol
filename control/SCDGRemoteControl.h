@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, SCDGRemoteControlType){
 @property (nonatomic, strong)NSString *publicKey;
 @property (nonatomic, strong)NSString *publicKeyFileName;
 
-// if type is SCDGRemoteControlDefault the data is SCDGControlInfo instance
+// if type is SCDGRemoteControlDefault the data is MsgMessageContent instance
 @property (nonatomic, strong) void(^handleMessage)(id data, NSString *topic, BOOL retained);
 
 SCDG_DECLARE_SINGLETON()

@@ -12,8 +12,12 @@
 
 SCDG_DECLARE_SINGLETON()
 
-- (void)addOrUpdateControlInfo:(SCDGControlInfo*)info callback:(void(^)())callback;
+- (void)addOrUpdateControlInfo:(MsgMessageContent*)message callback:(void(^)())callback;
 
-- (RLMResults<SCDGControlInfo *> *)getControlInfos:(uint32_t)acceptorId type:(uint8_t)type;
+- (NSArray<MsgMessageContent *> *)getControlInfos:(uint32_t)acceptorId type:(uint8_t)type;
+
+- (NSArray<MsgMessageContent *> *)getControlInfos:(uint32_t)acceptorId;
+
+- (NSArray<MsgMessageContent *> *)getAllSubControlInfos:(uint32_t)acceptorId;
 
 @end

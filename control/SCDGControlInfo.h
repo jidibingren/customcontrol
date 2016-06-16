@@ -33,21 +33,23 @@ typedef NS_ENUM(uint8_t, SCDGActionType) {
 
 @interface SCDGControlInfo : RLMObject
 
-@property (nonatomic, assign)uint64_t messageId;
+@property (nonatomic, strong)NSString *primaryId;
 
-@property (nonatomic, assign)uint8_t platform;
+@property (nonatomic, assign)long long messageId;
+
+@property (nonatomic, assign)int platform;
 
 @property (nonatomic, strong)NSString *version;
 
-@property (nonatomic, assign)uint8_t type;
+@property (nonatomic, assign)int type;
 
-@property (nonatomic, assign)uint8_t action;
+@property (nonatomic, assign)int action;
 
-@property (nonatomic, assign)uint32_t acceptorId;
+@property (nonatomic, assign)int acceptorId;
 
-@property (nonatomic, assign)uint64_t start;
+@property (nonatomic, assign)long long start;
 
-@property (nonatomic, assign)uint64_t end;
+@property (nonatomic, assign)long long end;
 
 @property (nonatomic, strong)NSString *payload;
 

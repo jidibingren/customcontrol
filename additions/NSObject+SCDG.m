@@ -34,9 +34,21 @@ static void *NSObjectSCDGAcceptorIdKey = &NSObjectSCDGAcceptorIdKey;
 }
 
 
-- (RLMResults<SCDGControlInfo *> *)getControlInfos:(SCDGControlType)type{
+- (NSArray<MsgMessageContent *> *)getControlInfos:(SCDGControlType)type{
     
     return [[SCDGConfigs sharedInstance] getControlInfos:self.acceptorId type:type];
+    
+}
+
+- (NSArray<MsgMessageContent *> *)getControlInfos{
+    
+    return [[SCDGConfigs sharedInstance] getControlInfos:self.acceptorId];
+    
+}
+
+- (NSArray<MsgMessageContent *> *)getAllSubControlInfos{
+    
+    return [[SCDGConfigs sharedInstance] getAllSubControlInfos:self.acceptorId];
     
 }
 
@@ -63,13 +75,13 @@ static void *NSObjectSCDGAcceptorIdKey = &NSObjectSCDGAcceptorIdKey;
 
 - (void)handleNotifications:(NSNotification*)noti{
     
-    if (noti.object && [noti.object isKindOfClass:[SCDGControlInfo class]]) {
+    if (noti.object && [noti.object isKindOfClass:[MsgMessageContent class]]) {
         [self handleControlWith:noti.object];
     }
     
 }
 
-- (void)handleControlWith:(SCDGControlInfo*)info{
+- (void)handleControlWith:(MsgMessageContent*)message{
     
 }
 

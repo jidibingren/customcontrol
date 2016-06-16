@@ -1,14 +1,14 @@
 //
-//  SCDGView.m
+//  SCDGImageView.m
 //  deigo
 //
-//  Created by SC on 16/6/16.
+//  Created by SC on 16/6/17.
 //  Copyright © 2016年 SC. All rights reserved.
 //
 
-#import "SCDGView.h"
+#import "SCDGImageView.h"
 
-@implementation SCDGView
+@implementation SCDGImageView
 
 - (instancetype)init{
     
@@ -31,7 +31,7 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     
     if (self = [super initWithCoder:aDecoder]) {
-    
+        
         self.acceptorId = (uint32_t)self.tag;
         
     }

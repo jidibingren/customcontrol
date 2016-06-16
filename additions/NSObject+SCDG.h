@@ -13,12 +13,16 @@
 
 @property (nonatomic, assign)uint32_t acceptorId;
 
-- (RLMResults<SCDGControlInfo *> *)getControlInfos:(SCDGControlType)type;
+- (NSArray<MsgMessageContent *> *)getControlInfos:(SCDGControlType)type;
+
+- (NSArray<MsgMessageContent *> *)getControlInfos;
+
+- (NSArray<MsgMessageContent *> *)getAllSubControlInfos;
 
 // should invoke in dealloc method
 - (void)unsubscribeRemoteControl;
 
 // subclass can overwrite
-- (void)handleControlWith:(SCDGControlInfo*)info;
+- (void)handleControlWith:(MsgMessageContent*)message;
 
 @end

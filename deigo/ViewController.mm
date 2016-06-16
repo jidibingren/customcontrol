@@ -114,6 +114,31 @@
     
     [self.view addSubview:btn];
     
+    SCDGLabel *label = [[SCDGLabel alloc]initWithFrame:CGRectMake(100, 400, 200, 40)];
+    label.textColor = [UIColor blackColor];
+    label.acceptorId = 0x10001;
+    [self.view addSubview:label];
+    
+    MsgMessageContent *message = [MsgMessageContent new];
+    message.messageId = 11111111;
+    message.type = 3;
+    message.action = 2;
+    message.acceptorId = 0x10001;
+    message.payload = @"hello";
+    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
+    }];
+    message = [MsgMessageContent new];
+    message.messageId = 11111111;
+    message.type = 3;
+    message.action = 3;
+    message.acceptorId = 0x10001;
+    message.payload = @"1bca7f";
+    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
+    }];
 }
 
 - (void)publishMsg{

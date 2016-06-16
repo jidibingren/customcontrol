@@ -39,6 +39,14 @@
     return self;
 }
 
+- (void)setTag:(NSInteger)tag{
+    
+    [super setTag:tag];
+    
+    self.acceptorId = (uint32_t)tag;
+    
+}
+
 -(void)layoutSubviews{
     
     [super layoutSubviews];
@@ -53,9 +61,9 @@
 
 - (void)layoutByControlInfo{
     
-    RLMResults<SCDGControlInfo *> * puppies = [self getControlInfos:SCDGControlTypeChangeUI];
+    NSArray<MsgMessageContent *> * puppies = [self getControlInfos];
     
-    for (SCDGControlInfo *controlInfo in puppies) {
+    for (MsgMessageContent *controlInfo in puppies) {
         
         [self changeByControlInfo:controlInfo];
         
@@ -63,20 +71,21 @@
     
 }
 
-- (void)changeByControlInfo:(SCDGControlInfo*)controlInfo{
+- (void)changeByControlInfo:(MsgMessageContent*)controlInfo{
     
     if (controlInfo.type == SCDGControlTypeChangeUI) {
         
         switch (controlInfo.action) {
                 
             case SCDGActionTypeContent:
+                
                 self.text = controlInfo.payload;
                 break;
                 
             case SCDGActionTypeTextColor:
                 
                 if (controlInfo.payload && [SCDGUtils isValidStr:controlInfo.payload] && controlInfo.payload.length == 6) {
-                    self.backgroundColor = [SCDGUtils getColor:controlInfo.payload];
+                    self.textColor = [SCDGUtils getColor:controlInfo.payload];
                 }
                 break;
                 
@@ -90,13 +99,27 @@
             default:
                 break;
         }
+        
+    }else if (controlInfo.type == SCDGControlTypeEnable){
+        
+        self.userInteractionEnabled = controlInfo.action;
+        
     }
 }
-- (void)handleControlWith:(SCDGControlInfo *)info{
+- (void)handleControlWith:(MsgMessageContent *)message{
     
-    [self changeByControlInfo:info];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self changeByControlInfo:message];
+        
+    });
     
 }
 
+- (void)dealloc{
+    
+    [self unsubscribeRemoteControl];
+    
+}
 
 @end

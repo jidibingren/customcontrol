@@ -11,7 +11,14 @@
 #ifdef __OBJC__
 
 #import <Foundation/Foundation.h>
+
+#import "SCDGFlatbufferHeaders.h"
+#import "SCDGProjectHeaders.h"
 #import "NSObject+SCDG.h"
+#import "SCDGView.h"
+#import "SCDGLabel.h"
+#import "SCDGButton.h"
+#import "SCDGImageView.h"
 
 #endif
 #endif /* SCDGAdditionHeaders_h */

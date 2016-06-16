@@ -158,21 +158,6 @@ SCDG_IMPLEMENT_SINGLETON()
 
 #pragma mark - m
 
-- (SCDGControlInfo *)controlInfoFrom:(MsgMessageContent*)message{
-    
-    SCDGControlInfo *temp = [[SCDGControlInfo alloc] init];
-    temp.messageId = message.messageId;
-    temp.platform = message.platform;
-    temp.version = message.version;
-    temp.type = message.type;
-    temp.action = message.action;
-    temp.acceptorId = message.acceptorId;
-    temp.start = message.start;
-    temp.end = message.end;
-    temp.payload = message.payload;
-    
-    return temp;
-}
 - (void)handleMessage:(NSData *)data onTopic:(NSString *)topic retained:(BOOL)retained{
     
     if (self.type == SCDGRemoteControlCustom) {
@@ -196,14 +181,13 @@ SCDG_IMPLEMENT_SINGLETON()
                     
                     [cache cacheExecCommand:data commandId:message.messageId];
                     
-                    SCDGControlInfo *controlInfo = [self controlInfoFrom:message];
-                    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:controlInfo callback:^{
+                    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
                         
-                        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:controlInfo];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
                         
                         if (_handleMessage){
                             
-                            _handleMessage(controlInfo, topic, retained);
+                            _handleMessage(message, topic, retained);
                             
                         }
                     }];
