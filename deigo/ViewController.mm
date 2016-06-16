@@ -139,6 +139,16 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
     }];
+    message = [MsgMessageContent new];
+    message.messageId = 11111111;
+    message.type = 3;
+    message.action = 4;
+    message.acceptorId = 0x10001;
+    message.payload = @"7fa6ff";
+    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
+    }];
 }
 
 - (void)publishMsg{
