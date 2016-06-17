@@ -10,6 +10,7 @@
 #include <iostream>
 #include <arpa/inet.h>
 #import "ViewController.h"
+#import "SCDGAdditionHeaders.h"
 //#include "flatbuffers/util.h"
 //#include "serverlogin_generated.h"
 //
@@ -88,6 +89,12 @@
 //        ;
 //    }];
     
+    [SCDGRemoteControl sharedInstance].publicKey = [NSString stringWithUTF8String:"-----BEGIN PUBLIC KEY-----\
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD/EUpM0AHvFFLTZDhbcezAEFW\
+HR3pZwyqk59yy/fg2jJcRTfbyPjHLs/qkDoHBTV9ZhENVJe1OeBXPJYIaW6pvZ7e\
+eOVGSNOIGjAswS0ng9zn32C3YkFKVjKZenOLA0xH1fAoD0NRy4rGVOJ0qzLGaTTy\
+ZrR6lNqTzqF+OVj9RQIDAQAB\
+-----END PUBLIC KEY-----"];
     [SCDGRemoteControl sharedInstance].httpUrlPrefix = @"http://api.msg.yiliangche.cn";
 //    [SCDGRemoteControl sharedInstance].httpUrlPrefix = @"http://192.168.1.230";
 //    [SCDGRemoteControl sharedInstance].httpUrlPrefix = @"http://192.168.1.102";
@@ -98,11 +105,11 @@
     
     [SCDGRemoteControl sharedInstance].handleMessage = ^(MsgMessageContent *data, NSString *topic, BOOL retained){
         
-        NSString *dataString = [[NSString alloc] initWithData:[[data getByteBuffer] data] encoding:NSUTF8StringEncoding];
-        NSLog(@"received data %@", dataString);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [SCDGUtils alert:dataString];
-        });
+//        NSString *dataString = [[NSString alloc] initWithData:[[data getByteBuffer] data] encoding:NSUTF8StringEncoding];
+//        NSLog(@"received data %@", dataString);
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [SCDGUtils alert:dataString];
+//        });
         
     };
     
@@ -114,57 +121,67 @@
     
     [self.view addSubview:btn];
     
-    SCDGLabel *label = [[SCDGLabel alloc]initWithFrame:CGRectMake(100, 400, 200, 40)];
+    SCDGLabel *label = [[SCDGLabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-100, 400, 200, 40)];
     label.textColor = [UIColor blackColor];
-    label.acceptorId = 0x10001;
+    label.text = @"old";
+    label.tag = 0x10001;
+    label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
-    MsgMessageContent *message = [MsgMessageContent new];
-    message.messageId = 11111111;
-    message.type = 3;
-    message.action = 2;
-    message.acceptorId = 0x10001;
-    message.payload = @"hello";
-    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
-    }];
-    message = [MsgMessageContent new];
-    message.messageId = 11111111;
-    message.type = 3;
-    message.action = 3;
-    message.acceptorId = 0x10001;
-    message.payload = @"1bca7f";
-    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
-    }];
-    message = [MsgMessageContent new];
-    message.messageId = 11111111;
-    message.type = 3;
-    message.action = 4;
-    message.acceptorId = 0x10001;
-    message.payload = @"7fa6ff";
-    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
-    }];
+//    MsgMessageContent *message = [MsgMessageContent new];
+//    message.messageId = 11111111;
+//    message.type = 3;
+//    message.action = 2;
+//    message.acceptorId = 0x10001;
+//    message.payload = @"hello";
+//    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
+//    }];
+//    message = [MsgMessageContent new];
+//    message.messageId = 11111111;
+//    message.type = 3;
+//    message.action = 3;
+//    message.acceptorId = 0x10001;
+//    message.payload = @"1bca7f";
+//    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
+//    }];
+//    message = [MsgMessageContent new];
+//    message.messageId = 11111111;
+//    message.type = 3;
+//    message.action = 4;
+//    message.acceptorId = 0x10001;
+//    message.payload = @"7fa6ff";
+//    [[SCDGConfigs sharedInstance] addOrUpdateControlInfo:message callback:^{
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:[SCDGUtils remoteControlNotifactionNameWith:message.acceptorId] object:message];
+//    }];
 }
 
 - (void)publishMsg{
     
-    [[SCDGRemoteControl sharedInstance] sendMessageReceivedWithParams:@{@"mid" : @"111"} callback:^(BOOL isSuccessed, NSString *mid) {
-        
-        if  (isSuccessed == YES){
-         
-            [[SCDGCache sharedInstance] removeFromUncompletedCacheBy:[@"111" longLongValue]];
-            
-        }
-    }];
-    
-    return;
-    
-    [[SCDGRemoteControl sharedInstance] publish:[SCDGRemoteControl sharedInstance].topic data:[@"hello deigo" dataUsingEncoding:NSUTF8StringEncoding]];
+//    [[SCDGRemoteControl sharedInstance] sendMessageReceivedWithParams:@{@"mid" : @"111"} callback:^(BOOL isSuccessed, NSString *mid) {
+//        
+//        if  (isSuccessed == YES){
+//         
+//            [[SCDGCache sharedInstance] removeFromUncompletedCacheBy:[@"111" longLongValue]];
+//            
+//        }
+//    }];
+//    
+//    return;
+    static int count = 0;
+    MsgMessageContent *message = [MsgMessageContent new];
+    message.messageId = [SCDGUtils getNonce].integerValue;
+    message.platform = 1;
+    message.version = @"1.4";
+    message.type = 3;
+    message.action = 2;
+    message.acceptorId = 0x10001;
+    message.payload = [NSString stringWithFormat:@"hello deigo %d",count++];
+    [[SCDGRemoteControl sharedInstance] publish:[SCDGRemoteControl sharedInstance].topic data:[message getData]];
     
 }
 

@@ -147,22 +147,6 @@
     return [[[NSBundle mainBundle] preferredLocalizations] objectAtIndex:0];
 }
 
-NSString* const LOGINED_KEY = @"logined";
-
-+ (BOOL) isLogined {
-    NSUserDefaults * userDefaultes = [NSUserDefaults standardUserDefaults];
-    return [userDefaultes boolForKey:LOGINED_KEY];
-}
-
-+ (void) setLogined: (BOOL)logined {
-    NSUserDefaults * userDefaultes = [NSUserDefaults standardUserDefaults];
-    [userDefaultes setBool:logined forKey:LOGINED_KEY];
-    [userDefaultes synchronize];
-    if (!logined) {
-        
-    }
-}
-
 + (NSString *)deviceType{
     
     struct utsname systemInfo;

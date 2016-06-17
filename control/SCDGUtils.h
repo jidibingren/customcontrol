@@ -62,10 +62,6 @@
 // 比较两个版本号
 + (int) compareVersion:(NSString*)version1 withVersion:(NSString*)version2;
 
-// 当前用户的登陆信息，存在NSUserDefaults中
-+ (BOOL) isLogined;
-+ (void) setLogined: (BOOL)logined;
-
 // 设置系统默认的User-Agent字段，http请求时用到
 + (void) setupUserAgent;
 

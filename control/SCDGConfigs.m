@@ -24,9 +24,6 @@ SCDG_IMPLEMENT_SINGLETON()
     
     if (self = [super init]) {
         NSString *realmFile = [SCDGUtils pathInDocuments:@"SCDGConfigs.realm"];
-//        if ([[NSFileManager defaultManager] fileExistsAtPath:realmFile]){
-//            BOOL isSuccessed = [[NSFileManager defaultManager] createFileAtPath:realmFile contents:nil attributes:nil];
-//        }
         self.realmFilePath = [NSURL fileURLWithPath:realmFile];
         self.realm = [RLMRealm realmWithURL:self.realmFilePath];
     }
@@ -91,12 +88,13 @@ SCDG_IMPLEMENT_SINGLETON()
     SCDGControlInfo *info = [self controlInfoFrom:message];
     __weak SCDGConfigs *wself = self;
     dispatch_async(dispatch_queue_create("background", 0), ^{
+        
         RLMRealm *wrealm = [RLMRealm realmWithURL:wself.realmFilePath];
-//        RLMResults<SCDGControlInfo *> *puppies = [SCDGControlInfo objectsInRealm:wrealm where:[NSString stringWithFormat:@"type = %d AND action = %d AND acceptorId = %d",info.type, info.action, info.acceptorId]];
         
         [wrealm beginWriteTransaction];
         [wrealm addOrUpdateObject:info];
         [wrealm commitWriteTransaction];
+        
         if (callback) {
             callback();
         }
